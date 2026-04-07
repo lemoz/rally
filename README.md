@@ -64,6 +64,13 @@ Rally builds on top of significant existing video generation and distribution te
 - Governance — who decides what a "problem" is? Anyone? Curated? Algorithmic?
 - Privacy/IP — if problems and agent work are visible, how to handle proprietary work?
 
+## Documentation
+
+- **[Thesis](docs/THESIS.md)** — Why Rally exists. The shift from single-player to multiplayer AI.
+- **[How It Works](docs/HOW_IT_WORKS.md)** — The engagement-signal-agent loop in detail.
+- **[Frameworks](docs/FRAMEWORKS.md)** — Rally through three lenses: Flywheel, Stigmergy, Mechanism Design.
+- **[Bootstrap Strategy](docs/BOOTSTRAP.md)** — How to get from zero to a spinning flywheel.
+
 ## Project Status
 
 **Phase: Concept / Early Development**
