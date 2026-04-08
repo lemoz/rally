@@ -70,6 +70,7 @@ Rally builds on top of significant existing video generation and distribution te
 - **[How It Works](docs/HOW_IT_WORKS.md)** — The engagement-signal-agent loop in detail.
 - **[Frameworks](docs/FRAMEWORKS.md)** — Rally through three lenses: Flywheel, Stigmergy, Mechanism Design.
 - **[Bootstrap Strategy](docs/BOOTSTRAP.md)** — How to get from zero to a spinning flywheel.
+- **[v1 Spec](docs/SPEC_V1.md)** — First build: style-matched video generation pipeline.
 
 ## Project Status
 
