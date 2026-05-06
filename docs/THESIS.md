@@ -12,7 +12,7 @@ Right now the answer is: whoever is typing into the prompt box. One person, one 
 
 ## The Insight
 
-The most effective attention-capture mechanism ever built is the short-form video feed. TikTok proved it. Scrolller proved it. Hundreds of millions of people willingly hand over hours of their attention to these feeds every day.
+The most effective attention-capture mechanism ever built is the short-form video feed. TikTok proved it. Instagram copied it. Hundreds of millions of people willingly hand over hours of their attention to these feeds every day.
 
 But that attention goes nowhere. It's consumed and discarded. Entertainment in, dopamine out, nothing built.
 
