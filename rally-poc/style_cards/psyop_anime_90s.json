@@ -1,0 +1,143 @@
+{
+  "style_id": "psyop_anime_90s",
+  "version": 1,
+  "status": "locked_poc",
+  "display_name": "PsyopAnime-inspired 90s anime drama",
+  "description": "Character-driven short-form anime drama with Japanese dialogue, English subtitles, source-backed real-person caricatures, and deterministic proof handling.",
+  "reference_notes": [
+    "Character-driven scenes instead of explainer narration.",
+    "Use dramatic eye close-ups for high-stakes beats.",
+    "Use Japanese dialogue with English subtitles.",
+    "Use dark 90s cel-shaded anime, cinematic shadows, cold monitor light, and red warning glow.",
+    "Avoid moving mouths unless lip sync is explicitly required."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "deep blue",
+      "red warning glow",
+      "cold monitor light",
+      "black shadow blocks"
+    ],
+    "camera": [
+      "wide establishing shot",
+      "locked close-up",
+      "slow push-in",
+      "reverse shot in same room",
+      "extreme eye close-up"
+    ],
+    "texture": [
+      "90s cel shading",
+      "film grain",
+      "hard shadow shapes",
+      "monitor glow reflections"
+    ],
+    "composition_rules": [
+      "Every panel must work as a vertical crop.",
+      "Keep bottom 18 percent clear for subtitles.",
+      "Use repeated room anchors for dialogue scenes: table, screen, light direction, color palette.",
+      "Do not put exact generated text in the image unless it is decorative texture."
+    ]
+  },
+  "story_structure": [
+    "hook",
+    "discovery",
+    "conflict",
+    "opposition",
+    "proof",
+    "payoff"
+  ],
+  "caption_treatment": {
+    "position": "bottom_safe_area",
+    "style": "large yellow subtitles with black backing box",
+    "max_lines": 2,
+    "fallback_max_lines": 3
+  },
+  "audio": {
+    "voice_mode": "character_dialogue",
+    "language": "ja",
+    "voice_map": {
+      "researcher": "Alice",
+      "dario": "Daniel",
+      "general": "Adam",
+      "narrator": "Liam"
+    },
+    "music": "none_for_current_poc"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_panels",
+      "new_location",
+      "new_cast",
+      "new_visual_mode",
+      "proof_bearing_panel",
+      "prompt_becoming_overloaded",
+      "style_reference_change"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "prefer_eye_closeups_over_lipsync": true,
+    "avoid_mouth_shots_unless_lipsync_required": true,
+    "proof_panels_must_be_source_backed": true,
+    "review_likeness_before_video": true,
+    "avoid_i2v_before_lipsync_for_likeness": true,
+    "motion_required_per_video_shot": true,
+    "dialogue_transition_duration": 0.0,
+    "lip_sync_padding_s": 0.08,
+    "stop_after_phase1_for_likeness": true
+  },
+  "routing": {
+    "default_routes": {
+      "concept_hero": "NB2 storyboard panel -> Seedance T2V/I2V if motion-critical; otherwise deterministic still motion",
+      "talking_head": "NB2 character still -> RunComfy lip sync when mouth movement is required",
+      "likeness_critical_talking_head": "source-backed NB2 still -> operator still approval -> RunComfy lip sync; never Seedance I2V before lip sync by default",
+      "eye_closeup": "NB2 still or Seedance T2V with explicit blink, eye dart, reflection, or push-in",
+      "proof_card": "deterministic render only; never generated evidence",
+      "b_roll": "Seedance T2V with explicit motion source"
+    },
+    "fallback_routes": {
+      "talking_head": "eye close-up with voiceover, or voiceover-only",
+      "likeness_critical_talking_head": "approved still with assembly motion, or eye close-up with voiceover",
+      "proof_card": "skip proof shot rather than fake evidence",
+      "low_motion_video": "regenerate only failed shot and downstream derived assets"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "one_clear_beat_per_panel",
+      "vertical_crop_works",
+      "bottom_caption_area_clear",
+      "source_backed_real_person_reference_present",
+      "likeness_still_approved_before_lipsync",
+      "shared_room_geography_for_reverse_shots",
+      "proof_panels_deterministic_or_source_backed",
+      "each_video_shot_has_explicit_motion_source",
+      "dialogue_shot_duration_exceeds_voiceover_duration"
+    ],
+    "reject_reasons": [
+      "unclear_beat",
+      "crowded_panel",
+      "weak_hook",
+      "character_drift",
+      "likeness_mismatch",
+      "identity_drift_risk",
+      "scene_continuity_break",
+      "unsafe_caption_area",
+      "fake_evidence_risk",
+      "bad_vertical_crop",
+      "motion_mismatch",
+      "style_mismatch",
+      "dialogue_overlap_risk"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 0,
+      "max_avg_freeze_ratio": 0.1
+    }
+  }
+}

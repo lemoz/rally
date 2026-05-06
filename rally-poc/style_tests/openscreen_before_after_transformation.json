@@ -1,0 +1,105 @@
+{
+  "video_id": "openscreen_before_after_transformation_001",
+  "project": {
+    "name": "OpenScreen",
+    "repo": "github.com/siddharthvaddem/openscreen",
+    "one_liner": "Free, open-source Screen Studio alternative with auto-zoom, motion blur, smooth cursor, no watermarks.",
+    "known_proof": [
+      "26k+ GitHub stars",
+      "$0 vs Screen Studio at $29/month",
+      "MIT licensed",
+      "macOS, Windows, and Linux support"
+    ]
+  },
+  "target_duration_s": 25,
+  "style_id": "before_after_transformation",
+  "storyboard": {
+    "batch_size": 6
+  },
+  "panels": [
+    {
+      "panel_id": "p01",
+      "role": "after_hook",
+      "shot_type": "hook",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Show the polished after-state first: a clean screen recording with smooth auto-zoom and motion blur",
+      "composition": "full-frame app/demo result with deterministic AFTER label in top-left",
+      "motion_intent": "fast result-first clip, cursor click triggers smooth zoom, AFTER label snaps on",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "REAL_AFTER_CAPTURE",
+      "fallback_route": "DO_NOT_USE_STYLE_IF_NO_AFTER_CAPTURE"
+    },
+    {
+      "panel_id": "p02",
+      "role": "rewind_to_before",
+      "shot_type": "before",
+      "claim_type": "interpretive",
+      "source_requirement": "none",
+      "characters": [],
+      "beat": "Rewind to the old workflow: raw screen recording feels jumpy and unfinished",
+      "composition": "gray cluttered editor screen with deterministic BEFORE label and messy cursor movement",
+      "motion_intent": "rewind wipe, jittery cursor, rough zoom jump, red pain-point annotation",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "DETERMINISTIC_DRAMATIZED_BEFORE_CARD_OR_REAL_CAPTURE",
+      "fallback_route": "TEXT_ONLY_BEFORE_CARD"
+    },
+    {
+      "panel_id": "p03",
+      "role": "pain_point",
+      "shot_type": "context",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "The paid baseline costs $29/month and is Mac-only, while this project is free and cross-platform",
+      "composition": "price/platform pain card with source footnotes",
+      "motion_intent": "red $29/month label appears, Mac-only tag dims, free cross-platform tag waits off-screen",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "DETERMINISTIC_PRICE_PLATFORM_CARD",
+      "fallback_route": "REMOVE_UNSOURCED_COMPARISON"
+    },
+    {
+      "panel_id": "p04",
+      "role": "project_intervention",
+      "shot_type": "demo_hero",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "OpenScreen adds the polish: auto-zoom, motion blur, smooth cursor",
+      "composition": "real OpenScreen/editor demo with three deterministic feature tags",
+      "motion_intent": "feature tags appear exactly as each visual feature happens",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "REAL_CAPTURE_WITH_DETERMINISTIC_LABELS",
+      "fallback_route": "FEATURE_PROOF_CARD"
+    },
+    {
+      "panel_id": "p05",
+      "role": "side_by_side_result",
+      "shot_type": "comparison",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Side-by-side: before is jumpy, after looks like a product launch video",
+      "composition": "vertical split-screen, BEFORE on left, AFTER on right, same cursor action",
+      "motion_intent": "synchronized cursor click, after side zooms smoothly, before side stutters",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "DETERMINISTIC_SPLIT_SCREEN_ASSEMBLY",
+      "fallback_route": "SKIP_IF_VISUAL_DELTA_WEAK"
+    },
+    {
+      "panel_id": "p06",
+      "role": "why_it_matters",
+      "shot_type": "payoff",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Payoff: if your demo is the product, the recorder matters",
+      "composition": "clean final result frame with repo URL and save/share prompt",
+      "motion_intent": "final zoom settles, repo URL highlights, save icon pops",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "RESULT_CAPTURE_WITH_CTA_OVERLAY",
+      "fallback_route": "DETERMINISTIC_CTA_CARD"
+    }
+  ]
+}

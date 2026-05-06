@@ -1,0 +1,10 @@
+{
+  "video_path": "/Users/cdossman/rally/rally-poc/project-a/final/video2_newsflash_sd2.mp4",
+  "shots": [
+    {"name": "S1_hook", "start_s": 0, "end_s": 3.89, "type": "T2V", "script_description": "Breaking news studio with red BREAKING NEWS banner", "text_bearing": false},
+    {"name": "S2_proof", "start_s": 3.89, "end_s": 9.87, "type": "I2V", "script_description": "GitHub trending page with OpenScreen at #1, 26.1k stars", "text_bearing": true},
+    {"name": "S3_features", "start_s": 9.87, "end_s": 25.47, "type": "T2V", "script_description": "Screen recording app showing auto-zoom and export", "text_bearing": false},
+    {"name": "S4_evidence", "start_s": 25.47, "end_s": 36.05, "type": "I2V", "script_description": "Price comparison plus developer quote", "text_bearing": true},
+    {"name": "S5_payoff", "start_s": 36.05, "end_s": 40.41, "type": "I2V", "script_description": "OpenScreen logo with particles", "text_bearing": true}
+  ]
+}

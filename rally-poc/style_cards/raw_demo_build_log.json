@@ -1,0 +1,123 @@
+{
+  "style_id": "raw_demo_build_log",
+  "version": 1,
+  "status": "candidate",
+  "display_name": "Raw demo build log",
+  "description": "Low-polish screen-recording style that feels like a creator discovering or testing a project in real time.",
+  "reference_notes": [
+    "Authentic beats polished. Keep it closer to a real creator demo than an ad.",
+    "Show the working result in the first two seconds.",
+    "Use real screen captures whenever possible.",
+    "Use voiceover and captions to explain only what the screen cannot show.",
+    "Avoid cinematic AI b-roll unless the project has no visual product surface."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "real app UI",
+      "terminal black",
+      "editor dark mode",
+      "one bright annotation color"
+    ],
+    "camera": [
+      "screen recording crop",
+      "quick zoom to result",
+      "cursor movement",
+      "terminal scroll",
+      "app interaction"
+    ],
+    "texture": [
+      "raw screen capture",
+      "cursor motion",
+      "simple annotation boxes",
+      "word-by-word captions"
+    ],
+    "composition_rules": [
+      "The product or result must be visible immediately.",
+      "Use real UI, repo pages, terminal output, or deterministic proof cards for factual claims.",
+      "Keep overlays sparse; do not cover the main demo area.",
+      "Use phone-native vertical crops, not polished cinematic framing."
+    ]
+  },
+  "story_structure": [
+    "result_first",
+    "what_it_is",
+    "quick_demo",
+    "proof",
+    "why_it_matters",
+    "save_or_try"
+  ],
+  "caption_treatment": {
+    "position": "bottom_safe_area",
+    "style": "bold white creator captions with black shadow",
+    "max_lines": 2,
+    "fallback_max_lines": 3
+  },
+  "audio": {
+    "voice_mode": "direct_voiceover",
+    "language": "en",
+    "voice_map": {
+      "narrator": "Liam"
+    },
+    "music": "none_or_low_background"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_panels",
+      "new_product_surface",
+      "proof_bearing_panel",
+      "manual_capture_required"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "proof_panels_must_be_source_backed": true,
+    "motion_required_per_video_shot": true,
+    "prefer_real_capture": true,
+    "dialogue_transition_duration": 0.0,
+    "avoid_generated_product_ui": true
+  },
+  "routing": {
+    "default_routes": {
+      "hook": "real screen recording of final result, or deterministic product proof card",
+      "demo_hero": "Playwright/manual screen recording first",
+      "context": "real repo/readme screenshot with annotation overlays",
+      "proof_card": "deterministic render from source data",
+      "payoff": "real result screen with caption overlay",
+      "b_roll": "assembly zoom/pan over real capture; generated only if clearly non-literal"
+    },
+    "fallback_routes": {
+      "demo_hero": "proof_card plus screenshot; do not fake product UI",
+      "screen_capture_failed": "operator-provided screenshot or skip shot",
+      "low_motion_video": "add deterministic zoom/cursor/highlight motion in assembly"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "result_visible_in_first_two_seconds",
+      "real_capture_or_deterministic_card_for_factual_claims",
+      "captions_readable",
+      "no_fake_product_ui",
+      "demo_area_not_obscured",
+      "save_worthy_takeaway_present"
+    ],
+    "reject_reasons": [
+      "weak_result_hook",
+      "fake_product_ui",
+      "unclear_demo",
+      "caption_blocks_demo",
+      "fake_evidence_risk",
+      "too_polished_ad_feel",
+      "missing_save_worthy_takeaway"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 1,
+      "max_avg_freeze_ratio": 0.15
+    }
+  }
+}

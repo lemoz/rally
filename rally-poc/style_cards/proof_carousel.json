@@ -1,0 +1,124 @@
+{
+  "style_id": "proof_carousel",
+  "version": 1,
+  "status": "candidate",
+  "display_name": "Proof carousel",
+  "description": "Save-worthy vertical slide deck that explains a project through deterministic cards, screenshots, and crisp claims.",
+  "reference_notes": [
+    "Optimize for saves and dwell time rather than cinematic motion.",
+    "Every slide should communicate one idea.",
+    "Use big claims only when backed by source data.",
+    "Use ambient or trending audio if posted as a carousel, but the slides must work muted.",
+    "Design should feel native to social slides, not like a pitch deck screenshot."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "charcoal",
+      "paper white",
+      "signal green",
+      "warning orange",
+      "muted project accent"
+    ],
+    "camera": [
+      "static slide",
+      "subtle scale-in",
+      "slide-to-slide progression",
+      "callout zoom"
+    ],
+    "texture": [
+      "large editorial headlines",
+      "deterministic proof cards",
+      "repo screenshots",
+      "simple diagrams",
+      "source footnotes"
+    ],
+    "composition_rules": [
+      "One headline per slide.",
+      "Keep text large enough for phone reading.",
+      "Use source footnotes for proof-bearing claims.",
+      "Do not rely on generated small text.",
+      "Use consistent margins and slide numbers."
+    ]
+  },
+  "story_structure": [
+    "hook_claim",
+    "what_it_replaces",
+    "how_it_works",
+    "proof",
+    "why_save",
+    "try_it"
+  ],
+  "caption_treatment": {
+    "position": "in_slide",
+    "style": "large deterministic slide text",
+    "max_lines": 4,
+    "fallback_max_lines": 5
+  },
+  "audio": {
+    "voice_mode": "optional_voiceover",
+    "language": "en",
+    "voice_map": {
+      "narrator": "Liam"
+    },
+    "music": "platform_trending_or_low_ambient"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_slides",
+      "new_project",
+      "proof_bearing_panel",
+      "too_much_text_for_one_slide"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "proof_panels_must_be_source_backed": true,
+    "motion_required_per_video_shot": false,
+    "prefer_deterministic_render": true,
+    "avoid_generated_text": true,
+    "dialogue_transition_duration": 0.0
+  },
+  "routing": {
+    "default_routes": {
+      "hook": "deterministic slide card with bold claim",
+      "context": "deterministic slide card plus repo/readme screenshot",
+      "proof_card": "deterministic render from source data",
+      "evidence": "real screenshot or deterministic source-backed card",
+      "payoff": "deterministic save/share card",
+      "b_roll": "not used by default"
+    },
+    "fallback_routes": {
+      "screenshot_failed": "source-backed proof card",
+      "too_much_text": "split into another slide",
+      "missing_source": "downgrade claim or remove slide"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "one_claim_per_slide",
+      "large_readable_text",
+      "proof_claims_source_backed",
+      "save_worthy_summary_present",
+      "consistent_visual_system",
+      "muted_viewing_works"
+    ],
+    "reject_reasons": [
+      "too_much_text",
+      "tiny_unreadable_text",
+      "fake_evidence_risk",
+      "unclear_claim",
+      "weak_save_value",
+      "inconsistent_slide_design"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 0,
+      "max_avg_freeze_ratio": 1.0
+    }
+  }
+}

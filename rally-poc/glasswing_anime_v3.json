@@ -1,0 +1,92 @@
+{
+  "project": "glasswing_anime_v3",
+  "style": "anime",
+  "style_id": "psyop_anime_90s",
+  "output_dir": "output/glasswing_anime_v3",
+  "shots": [
+    {
+      "name": "s1a_lab_wide",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Wide shot of dark anime research lab at night, banks of glowing monitors casting blue light, a lone female researcher silhouetted leaning forward at her desk, 90s anime cel-shaded style, Akira lighting, dramatic shadows, 9:16 vertical",
+      "vo_text": null,
+      "needs_lipsync": false,
+      "subtitle": null
+    },
+    {
+      "name": "s1b_researcher_eyes",
+      "type": "T2V",
+      "duration_s": 5,
+      "video_prompt": "Extreme close-up on wide frightened anime eyes of a young female researcher, monitors reflecting scrolling red code in her pupils, slow push-in camera move, eyes dart once then blink, red emergency light flickers across her face, continuous subtle motion, 90s anime cel-shaded style, dramatic shadows, 9:16 vertical",
+      "vo_text": "\u5343\u4ee5\u4e0a\u306e\u30bc\u30ed\u30c7\u30a4\u3092\u898b\u3064\u3051\u305f\u3002\u305f\u3063\u305f\u4e00\u665a\u3067\u3002",
+      "vo_voice": "Alice",
+      "needs_lipsync": false,
+      "subtitle": "It found over a thousand zero-days. In one night."
+    },
+    {
+      "name": "s3a_boardroom",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Establishing shot of the shared dark anime boardroom before anyone speaks: slow dolly down a long polished table toward a massive red glowing numbers screen, cold blue overhead lights, reflections sliding across the table, empty chairs and anonymous silhouettes only, no visible faces and no central fake CEO. This room will be used for both Dario and the General reverse shots. 90s anime cel-shaded style, Ghost in the Shell atmosphere, dramatic shadows, continuous cinematic motion, 9:16 vertical",
+      "vo_text": null,
+      "needs_lipsync": false,
+      "subtitle": null
+    },
+    {
+      "name": "s3b_dario_speaks",
+      "type": "NB2_STILL",
+      "duration_s": 5,
+      "image_prompt": "Create a recognizable 90s anime caricature of the exact person in the reference photo, not a generic villain and not a different heavyset executive. Preserve the actual facial proportions: high forehead, short dark curly hair, rounded black glasses, clean-shaven face, soft rounded jaw, natural medium build, nose shape, and mouth proportions. Front-facing head-and-shoulders portrait seated in the same dark boardroom as the establishing shot, table edge visible low in frame, cold blue overhead light, red numbers screen glow behind him, dark suit. Mouth fully visible with neutral slightly parted lips for lip sync. 90s cel-shaded anime style, Ghost in the Shell atmosphere, 9:16 vertical. Avoid beard, sharp villain jaw, angular fashion glasses, exaggerated weight, or a different CEO.",
+      "video_prompt": "Deterministic still-image talking shot. Preserve the reference-derived Dario likeness exactly while lip sync animates the mouth. No generated face replacement.",
+      "reference_image": "reference/dario_amodei_commons_2023.jpg",
+      "vo_text": "\u4e16\u754c\u4e2d\u306e\u3042\u3089\u3086\u308b\u30b7\u30b9\u30c6\u30e0\u3092\u7834\u58ca\u3067\u304d\u308b\u3082\u306e\u3092\u4f5c\u3063\u305f\u3002",
+      "vo_voice": "Daniel",
+      "needs_lipsync": true,
+      "subtitle": "We built something that can break every system on the planet."
+    },
+    {
+      "name": "s3c_general_responds",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Reverse shot in the same dark anime boardroom as the previous Dario shot: a stern older general/executive with graying hair and strong jaw sits across the same long polished table, tight head-and-shoulders close-up with the table edge and massive red glowing numbers screen visible behind him, arms crossed low in frame, mouth fully visible and unobstructed, lips clearly open and close while speaking, skeptical expression turning decisive. Match the same cold blue overhead lights, red screen glow, table reflections, and room geography. Slow push-in, continuous restrained motion, 90s anime cel-shaded style, dramatic shadows, 9:16 vertical",
+      "vo_text": "\u306a\u3089\u4f7f\u3048\u3002\u8ab0\u304b\u306b\u5148\u3092\u8d8a\u3055\u308c\u308b\u524d\u306b\u3002",
+      "vo_voice": "Adam",
+      "needs_lipsync": true,
+      "subtitle": "Then we use it. Before someone else builds one."
+    },
+    {
+      "name": "s3d_dario_eyes",
+      "type": "NB2_STILL",
+      "duration_s": 5,
+      "image_prompt": "Create a recognizable 90s anime close-up of the exact person in the reference photo, focused on his eyes behind rounded black glasses. Preserve the actual high forehead, short dark curly hairline, eye spacing, nose bridge, clean-shaven face, soft rounded jaw, natural medium build, and overall likeness. Same dark boardroom lighting as the previous shot, cold blue shadows, red warning light and code reflected in both lenses. 90s cel-shaded anime style, 9:16 vertical. Avoid beard, sharp villain jaw, angular fashion glasses, exaggerated weight, robot face, or a different character.",
+      "video_prompt": "Deterministic still-image close-up. Preserve the reference-derived Dario likeness exactly while assembly adds a subtle push-in.",
+      "reference_image": "reference/dario_amodei_commons_2023.jpg",
+      "vo_text": "\u308f\u304b\u3063\u3066\u3044\u306a\u3044\u3002\u6211\u3005\u304c\u300c\u8ab0\u304b\u300d\u306a\u3093\u3060\u3002",
+      "vo_voice": "Daniel",
+      "needs_lipsync": false,
+      "subtitle": "You don't understand. We ARE someone else."
+    },
+    {
+      "name": "s6a_mythos_eye",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Slow zoom out from a massive glowing red AI eye in darkness, streams of code orbiting around it like a solar system, ominous presence watching everything, 90s anime cel-shaded style, dramatic lighting, 9:16 vertical",
+      "vo_text": "\u3059\u3079\u3066\u3092\u7834\u58ca\u3067\u304d\u308b\u3082\u306e\u3060\u3051\u304c\u3001",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "The thing that can destroy everything..."
+    },
+    {
+      "name": "s6b_final_wide",
+      "type": "T2V",
+      "duration_s": 5,
+      "video_prompt": "Final wide shot of anime researcher standing alone in dark lab, behind her a massive screen shows a glowing red AI eye watching, she stares back at it, text 'PROJECT GLASSWING' fades in, 90s anime cel-shaded style, moody atmospheric lighting, 9:16 vertical",
+      "vo_text": "\u3059\u3079\u3066\u3092\u6551\u3048\u308b\u552f\u4e00\u306e\u3082\u306e\u3060\u3002",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "...is the only thing that can save it."
+    }
+  ],
+  "music": null,
+  "transition_duration": 0.0
+}

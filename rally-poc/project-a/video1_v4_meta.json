@@ -1,0 +1,53 @@
+{
+  "video_path": "/Users/cdossman/rally/rally-poc/project-a/final/video1_explainer_v4.mp4",
+  "shots": [
+    {
+      "name": "S1_hook",
+      "start_s": 0,
+      "end_s": 3.16,
+      "type": "T2V",
+      "script_description": "Laptop showing $29/month payment page",
+      "text_bearing": false
+    },
+    {
+      "name": "S2_context",
+      "start_s": 2.76,
+      "end_s": 10.38,
+      "type": "I2V",
+      "script_description": "OpenScreen editor UI with controls and timeline",
+      "text_bearing": true
+    },
+    {
+      "name": "S3_concept",
+      "start_s": 9.98,
+      "end_s": 21.45,
+      "type": "T2V",
+      "script_description": "Code editor with auto-zoom demo",
+      "text_bearing": false
+    },
+    {
+      "name": "S4_evidence",
+      "start_s": 21.05,
+      "end_s": 28.71,
+      "type": "I2V",
+      "script_description": "GitHub stats dashboard with 26100 stars",
+      "text_bearing": true
+    },
+    {
+      "name": "S5_comparison",
+      "start_s": 28.31,
+      "end_s": 44.68,
+      "type": "NB2_STILL",
+      "script_description": "Screen Studio vs OpenScreen comparison",
+      "text_bearing": true
+    },
+    {
+      "name": "S6_payoff",
+      "start_s": 44.28,
+      "end_s": 47.62,
+      "type": "I2V",
+      "script_description": "OpenScreen logo with blue glow",
+      "text_bearing": true
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "video_id": "glasswing_anime_short_001",
+  "target_duration_s": 30,
+  "style_id": "psyop_anime_90s",
+  "storyboard": {
+    "batch_size": 6
+  },
+  "panels": [
+    {
+      "panel_id": "p01",
+      "role": "hook",
+      "shot_type": "concept_hero",
+      "claim_type": "decorative",
+      "source_requirement": "none",
+      "characters": ["researcher"],
+      "beat": "Researcher sees red vulnerability alerts reflected in her eyes",
+      "composition": "extreme close-up on frightened eyes, monitor glow reflected in pupils",
+      "motion_intent": "locked camera, subtle eye movement, red code reflection flickers",
+      "caption_safe_area": "bottom 18 percent clear"
+    },
+    {
+      "panel_id": "p02",
+      "role": "discovery",
+      "shot_type": "talking_head",
+      "claim_type": "interpretive",
+      "source_requirement": "reference_only",
+      "characters": ["researcher"],
+      "beat": "Researcher whispers that the model found over a thousand zero-days",
+      "composition": "medium close-up, researcher half-lit by monitors, one hand on keyboard",
+      "motion_intent": "slight breathing motion, mouth mostly hidden by shadow, slow push-in",
+      "caption_safe_area": "bottom 18 percent clear",
+      "needs_lipsync": false,
+      "video_route": "SEEDANCE_T2V_OR_NB2_STILL_WITH_ASSEMBLY_MOTION",
+      "fallback_route": "EYE_CLOSEUP_WITH_VOICEOVER"
+    },
+    {
+      "panel_id": "p03",
+      "role": "conflict",
+      "shot_type": "talking_head",
+      "claim_type": "interpretive",
+      "source_requirement": "reference_only",
+      "characters": ["dario"],
+      "beat": "Dario warns the board that the model can break every system",
+      "composition": "source-backed anime caricature of Dario in the same dark boardroom, rounded glasses, high forehead, red monitor glow behind him",
+      "motion_intent": "mouth moves only through lip sync, subtle head stability, monitor glow flickers",
+      "caption_safe_area": "bottom 18 percent clear",
+      "scene_id": "boardroom_01",
+      "reference_character": "dario_amodei",
+      "likeness_critical": true,
+      "needs_lipsync": true,
+      "video_route": "NB2_STILL_TO_RUNCOMFY_LIPSYNC",
+      "fallback_route": "APPROVED_STILL_WITH_VOICEOVER_OR_EYE_CLOSEUP"
+    },
+    {
+      "panel_id": "p04",
+      "role": "opposition",
+      "shot_type": "talking_head",
+      "claim_type": "interpretive",
+      "source_requirement": "none",
+      "characters": ["general"],
+      "beat": "General argues they must use it before someone else does",
+      "composition": "older executive figure in the same dark boardroom as Dario, arms crossed, same red screen and blue overhead light",
+      "motion_intent": "locked camera, slow push-in, mouth visible only briefly",
+      "caption_safe_area": "bottom 18 percent clear",
+      "scene_id": "boardroom_01",
+      "needs_lipsync": true,
+      "video_route": "SEEDANCE_T2V_TO_RUNCOMFY_LIPSYNC",
+      "fallback_route": "VOICEOVER_ONLY_REVERSE_SHOT"
+    },
+    {
+      "panel_id": "p05",
+      "role": "proof",
+      "shot_type": "proof_card",
+      "claim_type": "proof_bearing",
+      "source_requirement": "deterministic_render",
+      "characters": [],
+      "beat": "Proof card shows previous model: 2 exploits, Mythos: 181",
+      "composition": "dark evidence card with two exact numeric comparisons and source footnote area",
+      "motion_intent": "no generated text motion; render as deterministic card or still",
+      "caption_safe_area": "bottom 18 percent clear"
+    },
+    {
+      "panel_id": "p06",
+      "role": "payoff",
+      "shot_type": "payoff",
+      "claim_type": "interpretive",
+      "source_requirement": "none",
+      "characters": ["researcher"],
+      "beat": "The red AI eye watches as the researcher realizes the paradox",
+      "composition": "wide lab shot, researcher small in foreground, massive red AI eye on screen",
+      "motion_intent": "slow zoom out, red eye pulses, researcher remains still",
+      "caption_safe_area": "bottom 18 percent clear"
+    }
+  ]
+}

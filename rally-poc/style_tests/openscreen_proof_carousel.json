@@ -1,0 +1,105 @@
+{
+  "video_id": "openscreen_proof_carousel_001",
+  "project": {
+    "name": "OpenScreen",
+    "repo": "github.com/siddharthvaddem/openscreen",
+    "one_liner": "Free, open-source Screen Studio alternative with auto-zoom, motion blur, smooth cursor, no watermarks.",
+    "known_proof": [
+      "26k+ GitHub stars",
+      "$0 vs Screen Studio at $29/month",
+      "MIT licensed",
+      "macOS, Windows, and Linux support"
+    ]
+  },
+  "target_duration_s": 0,
+  "style_id": "proof_carousel",
+  "storyboard": {
+    "batch_size": 6
+  },
+  "panels": [
+    {
+      "panel_id": "slide01",
+      "role": "hook_claim",
+      "shot_type": "hook",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "This free open-source app is coming for Screen Studio",
+      "composition": "large editorial headline, tiny product screenshot crop, slide number 1/6",
+      "motion_intent": "static slide or subtle scale-in only",
+      "caption_safe_area": "text is inside slide design",
+      "video_route": "DETERMINISTIC_SLIDE_CARD",
+      "fallback_route": "WEAKEN_CLAIM_IF_SOURCE_MISSING"
+    },
+    {
+      "panel_id": "slide02",
+      "role": "what_it_replaces",
+      "shot_type": "context",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Screen Studio costs $29/month; OpenScreen is free",
+      "composition": "two-column price comparison with exact labels and source footnote",
+      "motion_intent": "static slide; no generated text motion",
+      "caption_safe_area": "text is inside slide design",
+      "video_route": "DETERMINISTIC_COMPARISON_SLIDE",
+      "fallback_route": "REMOVE_PRICE_IF_UNSOURCED"
+    },
+    {
+      "panel_id": "slide03",
+      "role": "how_it_works",
+      "shot_type": "context",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "The feature stack: auto-zoom, motion blur, smooth cursor, no watermark",
+      "composition": "four large feature tiles with small source-backed screenshot strip",
+      "motion_intent": "static slide; optional deterministic checkmark reveal",
+      "caption_safe_area": "text is inside slide design",
+      "video_route": "DETERMINISTIC_FEATURE_SLIDE",
+      "fallback_route": "SPLIT_INTO_EXTRA_SLIDE_IF_TOO_DENSE"
+    },
+    {
+      "panel_id": "slide04",
+      "role": "proof",
+      "shot_type": "proof_card",
+      "claim_type": "proof_bearing",
+      "source_requirement": "deterministic_render",
+      "characters": [],
+      "beat": "Proof: 26k+ GitHub stars, MIT license, cross-platform support",
+      "composition": "repo proof card with star count, license badge, platform icons, source URL",
+      "motion_intent": "static slide; exact values rendered deterministically",
+      "caption_safe_area": "text is inside slide design",
+      "video_route": "DETERMINISTIC_PROOF_CARD",
+      "fallback_route": "SKIP_IF_SOURCE_MISSING"
+    },
+    {
+      "panel_id": "slide05",
+      "role": "why_save",
+      "shot_type": "payoff",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Why save it: next time you need a polished product demo, try this first",
+      "composition": "save-worthy checklist: demo, tutorial, launch video, bug report",
+      "motion_intent": "static slide; optional deterministic save icon pulse",
+      "caption_safe_area": "text is inside slide design",
+      "video_route": "DETERMINISTIC_SAVE_CARD",
+      "fallback_route": "TEXT_ONLY_SAVE_CARD"
+    },
+    {
+      "panel_id": "slide06",
+      "role": "try_it",
+      "shot_type": "payoff",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Try it: github.com/siddharthvaddem/openscreen",
+      "composition": "clean final card with repo URL, star button crop, 'open source' badge",
+      "motion_intent": "static slide; optional deterministic repo URL highlight",
+      "caption_safe_area": "text is inside slide design",
+      "video_route": "DETERMINISTIC_CTA_SLIDE",
+      "fallback_route": "SOURCE_LINK_ONLY_CARD"
+    }
+  ]
+}

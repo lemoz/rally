@@ -1,0 +1,126 @@
+{
+  "style_id": "before_after_transformation",
+  "version": 1,
+  "status": "candidate",
+  "display_name": "Before/after transformation",
+  "description": "Fast transformation format that shows the painful old workflow, the project intervention, and the improved result.",
+  "reference_notes": [
+    "Show the after/result first, then rewind to the before state.",
+    "The viewer should understand the transformation without audio.",
+    "Use split-screen or hard visual contrast between before and after.",
+    "Works best when the project has a visible output, faster workflow, or cleaner interface.",
+    "Do not exaggerate factual performance improvements without source data."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "before: gray, cluttered, slow",
+      "after: crisp, bright, clean",
+      "accent: electric green or yellow",
+      "warning red for pain point"
+    ],
+    "camera": [
+      "result-first hook",
+      "split-screen comparison",
+      "snap zoom",
+      "wipe reveal",
+      "fast cut"
+    ],
+    "texture": [
+      "real screenshots",
+      "deterministic labels",
+      "timer/step counter",
+      "progress arrows",
+      "simple motion graphics"
+    ],
+    "composition_rules": [
+      "Before and after states must be visually distinct.",
+      "Use exact labels rendered in assembly, not generated text.",
+      "Put the result in frame within the first two seconds.",
+      "Keep the comparison simple enough to read on mute."
+    ]
+  },
+  "story_structure": [
+    "after_hook",
+    "rewind_to_before",
+    "pain_point",
+    "project_intervention",
+    "side_by_side_result",
+    "why_it_matters"
+  ],
+  "caption_treatment": {
+    "position": "bottom_safe_area",
+    "style": "bold contrast captions plus deterministic BEFORE/AFTER labels",
+    "max_lines": 2,
+    "fallback_max_lines": 3
+  },
+  "audio": {
+    "voice_mode": "short_voiceover_or_text_only",
+    "language": "en",
+    "voice_map": {
+      "narrator": "Liam"
+    },
+    "music": "build_to_reveal_or_platform_trending"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_panels",
+      "multiple_before_states",
+      "multiple_after_states",
+      "proof_bearing_panel"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "proof_panels_must_be_source_backed": true,
+    "motion_required_per_video_shot": true,
+    "prefer_real_capture": true,
+    "prefer_deterministic_labels": true,
+    "avoid_generated_product_ui": true,
+    "dialogue_transition_duration": 0.0
+  },
+  "routing": {
+    "default_routes": {
+      "hook": "real after-state capture or deterministic result card",
+      "before": "real capture, screenshot, or deterministic dramatization clearly labeled as workflow pain",
+      "after": "real capture or source-backed result card",
+      "comparison": "deterministic split-screen assembly",
+      "proof_card": "deterministic render from source data",
+      "payoff": "result screen with short CTA"
+    },
+    "fallback_routes": {
+      "no_real_after": "do not use this style for the project",
+      "screenshot_failed": "source-backed proof card",
+      "weak_visual_delta": "switch to proof_carousel or raw_demo_build_log",
+      "missing_source": "remove numerical improvement claim"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "after_visible_first",
+      "before_after_delta_clear",
+      "labels_are_deterministic",
+      "claims_source_backed",
+      "visual_payoff_understands_on_mute",
+      "no_fake_product_ui"
+    ],
+    "reject_reasons": [
+      "weak_visual_delta",
+      "after_not_visible_fast_enough",
+      "fake_product_ui",
+      "fake_performance_claim",
+      "unclear_before_state",
+      "unclear_after_state",
+      "label_readability_failure"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 1,
+      "max_avg_freeze_ratio": 0.2
+    }
+  }
+}

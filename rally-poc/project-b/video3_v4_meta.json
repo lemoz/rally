@@ -1,0 +1,61 @@
+{
+  "video_path": "/Users/cdossman/rally/rally-poc/project-b/final/video3_hottake_v4.mp4",
+  "shots": [
+    {
+      "name": "S1_hook",
+      "start_s": 0,
+      "end_s": 7.99,
+      "type": "T2V",
+      "script_description": "Red code rain in cyberpunk server room",
+      "text_bearing": false
+    },
+    {
+      "name": "S2_context",
+      "start_s": 7.59,
+      "end_s": 20.87,
+      "type": "I2V",
+      "script_description": "Project Glasswing code scan with vulnerability markers",
+      "text_bearing": true
+    },
+    {
+      "name": "S3a_chain",
+      "start_s": 20.47,
+      "end_s": 30.48,
+      "type": "T2V",
+      "script_description": "Red orbs chain reaction",
+      "text_bearing": false
+    },
+    {
+      "name": "S3b_diagram",
+      "start_s": 30.08,
+      "end_s": 37.14,
+      "type": "NB2_STILL",
+      "script_description": "Bug chain diagram to FULL SYSTEM ACCESS",
+      "text_bearing": true
+    },
+    {
+      "name": "S4_partners",
+      "start_s": 36.74,
+      "end_s": 50.91,
+      "type": "I2V",
+      "script_description": "$100M committed with tech company logos",
+      "text_bearing": true
+    },
+    {
+      "name": "S5_stats",
+      "start_s": 50.51,
+      "end_s": 62.61,
+      "type": "NB2_STILL",
+      "script_description": "2 to 181 Firefox exploits stats",
+      "text_bearing": true
+    },
+    {
+      "name": "S6_payoff",
+      "start_s": 62.21,
+      "end_s": 72.89,
+      "type": "T2V",
+      "script_description": "Red vs blue energy - Glasswing Paradox",
+      "text_bearing": false
+    }
+  ]
+}

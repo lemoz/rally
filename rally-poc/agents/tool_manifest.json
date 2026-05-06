@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "can_spend_money": false,
+    "can_browse_web": false,
+    "can_capture_sources": false,
+    "can_edit_media": false,
+    "can_trigger_retries": false,
+    "allowed_tools": [
+      "read run directory",
+      "read upstream artifacts",
+      "write owned artifacts",
+      "write handoff"
+    ],
+    "forbidden_tools": [
+      "approve user-gated gates",
+      "fake proof-bearing evidence",
+      "skip handoff documentation"
+    ]
+  },
+  "roles": {
+    "producer": {
+      "allowed_tools": [
+        "read all run artifacts",
+        "read all gates",
+        "read all status files",
+        "write producer summary",
+        "write decision log",
+        "write gate recommendations",
+        "pause over-budget runs"
+      ],
+      "forbidden_tools": [
+        "approve user-gated gates",
+        "spend generation budget",
+        "replace specialist artifact owners"
+      ]
+    },
+    "research": {
+      "can_browse_web": true,
+      "can_capture_sources": true,
+      "allowed_tools": [
+        "browse source URLs",
+        "capture Playwright screenshots",
+        "read local references",
+        "write source pack",
+        "write claim inventory"
+      ],
+      "forbidden_tools": [
+        "spend generation budget",
+        "invent missing claims",
+        "treat generated visuals as evidence"
+      ]
+    },
+    "trend_style": {
+      "can_browse_web": true,
+      "can_capture_sources": true,
+      "allowed_tools": [
+        "browse trend references",
+        "capture read-only references",
+        "read source pack",
+        "write style brief",
+        "write reference manifest"
+      ],
+      "forbidden_tools": [
+        "spend generation budget",
+        "copy protected media",
+        "hand off raw trend dumps without synthesis"
+      ]
+    },
+    "creative_director": {
+      "allowed_tools": [
+        "read source pack",
+        "read style brief",
+        "write concept set",
+        "write selected concept"
+      ],
+      "forbidden_tools": [
+        "browse web directly",
+        "spend generation budget",
+        "select a concept without a first-two-seconds hook"
+      ]
+    },
+    "storyboard": {
+      "allowed_tools": [
+        "read selected concept",
+        "read style card",
+        "write storyboard JSON",
+        "write shot list"
+      ],
+      "forbidden_tools": [
+        "browse web directly",
+        "spend generation budget",
+        "overcrowd storyboard batches"
+      ]
+    },
+    "art_director": {
+      "allowed_tools": [
+        "read storyboard",
+        "read style brief",
+        "write keyframe specs",
+        "write prompt pack"
+      ],
+      "forbidden_tools": [
+        "spend generation budget",
+        "route proof-bearing exact text to generative video",
+        "skip keyframe review"
+      ]
+    },
+    "generation": {
+      "can_spend_money": true,
+      "allowed_tools": [
+        "call fal/NB2 image generation",
+        "call Segmind Seedance video generation",
+        "call ElevenLabs voice generation",
+        "call RunComfy lip sync",
+        "upload references to GCS",
+        "write generation manifest",
+        "write generated assets"
+      ],
+      "forbidden_tools": [
+        "start paid generation before keyframes gate approval",
+        "exceed budget without approval",
+        "generate proof-bearing evidence"
+      ]
+    },
+    "editor": {
+      "can_edit_media": true,
+      "allowed_tools": [
+        "run FFmpeg",
+        "assemble rough cut",
+        "assemble final cut",
+        "render captions",
+        "render deterministic proof cards",
+        "write edit decisions"
+      ],
+      "forbidden_tools": [
+        "spend generation budget",
+        "change factual claims",
+        "hide missing assets"
+      ]
+    },
+    "critic": {
+      "allowed_tools": [
+        "read all artifacts",
+        "read rough cut",
+        "write critique",
+        "write retry requests"
+      ],
+      "forbidden_tools": [
+        "trigger paid retries",
+        "edit generated assets",
+        "approve user-gated gates"
+      ]
+    },
+    "publisher_packet": {
+      "allowed_tools": [
+        "read final video",
+        "read source pack",
+        "read critique",
+        "write publish packet",
+        "write measurement instructions"
+      ],
+      "forbidden_tools": [
+        "publish automatically",
+        "change source caveats",
+        "spend generation budget"
+      ]
+    }
+  }
+}

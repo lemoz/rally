@@ -1,0 +1,126 @@
+{
+  "style_id": "creator_reaction_trend",
+  "version": 1,
+  "status": "candidate",
+  "display_name": "Creator reaction trend",
+  "description": "TikTok-native reaction/remix format built around comments, surprise hooks, source screenshots, and fast product proof.",
+  "reference_notes": [
+    "Use the language of creator reaction videos without depending on copyrighted music in the generated file.",
+    "Open with a surprised or skeptical claim that the viewer can verify on screen.",
+    "Treat comment bait as a structure, not as fake engagement.",
+    "Use real repo/homepage screenshots for factual claims.",
+    "Keep the pacing faster and more casual than a proof carousel."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "dark app UI",
+      "creator caption white",
+      "signal green",
+      "comment bubble gray",
+      "source screenshot black"
+    ],
+    "camera": [
+      "fast screenshot punch-in",
+      "screen recording crop",
+      "comment bubble overlay",
+      "source proof cutaway",
+      "hard cuts"
+    ],
+    "texture": [
+      "large reaction captions",
+      "comment-style prompts",
+      "real screenshots",
+      "source stamps",
+      "simple deterministic motion"
+    ],
+    "composition_rules": [
+      "The first frame must make the viewer ask what tool this is.",
+      "The project proof must appear before the CTA.",
+      "Do not fabricate comments, user counts, or outcomes.",
+      "Generated visuals can be used for vibe only, never for proof."
+    ]
+  },
+  "story_structure": [
+    "surprise_hook",
+    "comment_question",
+    "source_reveal",
+    "why_save",
+    "social_angle",
+    "next_test"
+  ],
+  "caption_treatment": {
+    "position": "bottom_safe_area",
+    "style": "bold creator captions with occasional comment-bubble headline",
+    "max_lines": 2,
+    "fallback_max_lines": 3
+  },
+  "audio": {
+    "voice_mode": "direct_voiceover",
+    "language": "en",
+    "voice_map": {
+      "narrator": "Liam"
+    },
+    "music": "platform_trending_when_posting_or_none_in_generated_asset"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_panels",
+      "new_trend_format",
+      "proof_bearing_panel",
+      "talking_head_variant"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "proof_panels_must_be_source_backed": true,
+    "motion_required_per_video_shot": true,
+    "prefer_real_capture": true,
+    "avoid_fake_comments": true,
+    "avoid_generated_product_ui": true,
+    "dialogue_transition_duration": 0.0
+  },
+  "routing": {
+    "default_routes": {
+      "hook": "real screenshot or demo clip with reaction caption",
+      "comment_question": "deterministic comment-bubble overlay on real demo",
+      "source_reveal": "homepage or GitHub screenshot",
+      "why_save": "deterministic card with source-backed bullets",
+      "social_angle": "real demo clip with creator-style caption",
+      "next_test": "repo screenshot or proof card"
+    },
+    "fallback_routes": {
+      "screenshot_failed": "source-backed proof card",
+      "weak_demo_motion": "switch to proof_carousel",
+      "missing_source": "remove proof claim",
+      "trend_audio_unavailable": "render voiceover-only and select platform audio at posting"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "surprise_hook_in_first_two_seconds",
+      "comment_prompt_not_fake_engagement",
+      "factual_claims_source_backed",
+      "demo_or_source_visible",
+      "captions_readable",
+      "clear_next_test_or_cta"
+    ],
+    "reject_reasons": [
+      "fake_comment_risk",
+      "fake_product_ui",
+      "weak_hook",
+      "unclear_source",
+      "too_polished_ad_feel",
+      "caption_blocks_demo"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 1,
+      "max_avg_freeze_ratio": 0.2
+    }
+  }
+}

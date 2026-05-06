@@ -1,0 +1,105 @@
+{
+  "video_id": "openscreen_raw_demo_build_log_001",
+  "project": {
+    "name": "OpenScreen",
+    "repo": "github.com/siddharthvaddem/openscreen",
+    "one_liner": "Free, open-source Screen Studio alternative with auto-zoom, motion blur, smooth cursor, no watermarks.",
+    "known_proof": [
+      "26k+ GitHub stars",
+      "$0 vs Screen Studio at $29/month",
+      "MIT licensed",
+      "macOS, Windows, and Linux support"
+    ]
+  },
+  "target_duration_s": 35,
+  "style_id": "raw_demo_build_log",
+  "storyboard": {
+    "batch_size": 6
+  },
+  "panels": [
+    {
+      "panel_id": "p01",
+      "role": "result_first",
+      "shot_type": "hook",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Show the polished screen-recording result first: smooth auto-zoom and cursor motion on a code editor",
+      "composition": "vertical crop of real app/demo output, big caption says 'This is free?'",
+      "motion_intent": "real cursor movement, smooth zoom into clicked code, quick annotation pop",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "REAL_CAPTURE_OR_DETERMINISTIC_DEMO",
+      "fallback_route": "PROOF_CARD_PLUS_SCREENSHOT"
+    },
+    {
+      "panel_id": "p02",
+      "role": "what_it_is",
+      "shot_type": "context",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "OpenScreen is a free open-source Screen Studio alternative",
+      "composition": "real GitHub/readme screenshot with simple arrow annotations around description and license",
+      "motion_intent": "slow scroll, cursor circles project description, highlight box fades in",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "SCREENSHOT_WITH_ASSEMBLY_ANNOTATIONS",
+      "fallback_route": "DETERMINISTIC_CONTEXT_CARD"
+    },
+    {
+      "panel_id": "p03",
+      "role": "quick_demo",
+      "shot_type": "demo_hero",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Demonstrate auto-zoom, motion blur, and smooth cursor in one fast sequence",
+      "composition": "screen recording fills frame, three small labels appear only when each feature happens",
+      "motion_intent": "cursor click, auto-zoom, motion blur trail, timeline playhead moves",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "PLAYWRIGHT_OR_MANUAL_SCREEN_RECORDING",
+      "fallback_route": "FEATURE_PROOF_CARD"
+    },
+    {
+      "panel_id": "p04",
+      "role": "proof",
+      "shot_type": "proof_card",
+      "claim_type": "proof_bearing",
+      "source_requirement": "deterministic_render",
+      "characters": [],
+      "beat": "Proof card: 26k+ GitHub stars, MIT license, cross-platform",
+      "composition": "deterministic dark card with exact source-backed numbers and source footnote area",
+      "motion_intent": "numbers tick only if rendered deterministically; otherwise static card with subtle scale",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "DETERMINISTIC_PROOF_CARD",
+      "fallback_route": "SKIP_IF_SOURCE_MISSING"
+    },
+    {
+      "panel_id": "p05",
+      "role": "why_it_matters",
+      "shot_type": "comparison",
+      "claim_type": "claim_bearing",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "Compare $29/month Screen Studio against free OpenScreen without overclaiming feature parity",
+      "composition": "simple split card: paid closed product on left, free open-source alternative on right",
+      "motion_intent": "left side dims, right side brightens, price labels slide in",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "DETERMINISTIC_COMPARISON_CARD",
+      "fallback_route": "TEXT_ONLY_PRICE_CARD"
+    },
+    {
+      "panel_id": "p06",
+      "role": "save_or_try",
+      "shot_type": "payoff",
+      "claim_type": "interpretive",
+      "source_requirement": "source_backed",
+      "characters": [],
+      "beat": "End on repo URL and a save-worthy takeaway: try it before paying for a screen recorder",
+      "composition": "real repo screenshot or logo card with 'save this' annotation",
+      "motion_intent": "cursor lands on star button, save icon pops, gentle zoom",
+      "caption_safe_area": "bottom 18 percent clear",
+      "video_route": "REAL_REPO_SCREENSHOT_WITH_ASSEMBLY_MOTION",
+      "fallback_route": "DETERMINISTIC_CTA_CARD"
+    }
+  ]
+}
