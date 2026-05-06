@@ -1,0 +1,32 @@
+.env
+.env.*
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+*.mp4
+*.wav
+*.mp3
+
+# Keep generated/heavy POC media out of git, but allow pipeline code,
+# scripts, plans, and notes to be tracked.
+rally-poc/**/.DS_Store
+rally-poc/output/
+rally-poc/project-*/assets/
+rally-poc/project-*/audio/
+rally-poc/project-*/final/
+rally-poc/reference/psyopanime/*.webm
+rally-poc/reference/psyopanime/frames_*/
+
+# Run artifacts (ephemeral state from agentic studio runs)
+rally-poc/runs/
+
+# Reference images (likeness anchors — binary, can be re-fetched from sources in SOURCES.md)
+rally-poc/reference/*.jpg
+rally-poc/reference/*.png
+
+# Next.js web app
+.next/
+.vercel/
+*.log
+.env*.local
