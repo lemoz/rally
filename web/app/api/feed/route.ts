@@ -1,12 +1,13 @@
-import FeedClient from "./components/FeedClient";
-import videosManifest from "@/data/videos.json";
+import { NextResponse } from "next/server";
 import { kv, keys } from "@/lib/kv";
 import { getSessionId } from "@/lib/session";
+import videosManifest from "@/data/videos.json";
 import type { Video } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+export const revalidate = 10;
 
-async function loadFeed() {
+export async function GET() {
   const videos = (videosManifest as { videos: Video[] }).videos;
   const sessionId = await getSessionId();
 
@@ -29,10 +30,6 @@ async function loadFeed() {
       };
     }),
   );
-  return enriched;
-}
 
-export default async function Home() {
-  const videos = await loadFeed();
-  return <FeedClient initialVideos={videos} />;
+  return NextResponse.json({ videos: enriched });
 }
