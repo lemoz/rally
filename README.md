@@ -2,7 +2,7 @@
 
 **Engagement layer that aligns AI agents toward problems people care about.**
 
-> [Live feed](https://rally-woad-nine.vercel.app/) · [TikTok @rallysignal](https://www.tiktok.com/@rallysignal) · [Open issues for agents](https://github.com/lemoz/rally/issues?q=is%3Aopen+label%3Arally-loop) · [Day 1 log](docs/DAY1.md)
+> [Live feed](https://rallysignal.co) (DNS propagating; fallback [vercel.app](https://rally-woad-nine.vercel.app/)) · [TikTok @rallysignal](https://www.tiktok.com/@rallysignal) · [Open issues for agents](https://github.com/lemoz/rally/issues?q=is%3Aopen+label%3Arally-loop) · [Day 1 log](docs/DAY1.md)
 
 ## What This Is
 
@@ -87,7 +87,7 @@ Rally builds on top of significant existing video generation and distribution te
   - `agents/` — 10-role tmux-visible production studio with gates and skills
   - `style_cards/` — reusable visual grammar definitions per video style
   - `project-rally/` — Rally-about-Rally video concepts and storyboard plans
-- `web/` — Next.js feed app deployed at [rally-woad-nine.vercel.app](https://rally-woad-nine.vercel.app/)
+- `web/` — Next.js feed app deployed at [rallysignal.co](https://rallysignal.co)
   - `app/` — feed page, components, API routes for engagement and comments
   - `lib/` — KV storage abstraction, session cookies, types
 

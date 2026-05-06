@@ -13,7 +13,7 @@ The day Rally went from "concept doc + private POC" to "public repo + live feed 
 - `.gitignore` now keeps the 833 MB of POC video output and reference images out of git; source-only tree is ~640 KB
 
 ### Web app
-- **Live** at [rally-woad-nine.vercel.app](https://rally-woad-nine.vercel.app/)
+- **Live** at [rallysignal.co](https://rallysignal.co) (Vercel project, custom domain wired via Namecheap → Vercel nameservers)
 - Real feed app shape: vertical-scroll with autoplay, like + comment + view counters, anonymous session cookies
 - Three API routes — `/api/engage`, `/api/comment`, `/api/feed`
 - Components — `FeedClient`, `VideoCard`, `CommentDrawer`
@@ -40,14 +40,14 @@ The day Rally went from "concept doc + private POC" to "public repo + live feed 
 
 - **Generate the first 3-5 videos.** The two written JSONs are ready; pipeline is proven from Glasswing. Estimated ~$5-9 each, 30-60 min wall clock per render.
 - **Provision Upstash Redis** via Vercel marketplace integration; swap the in-memory layer for real persistence
-- **rally.fyi domain** — was approved at $21 premium during planning; registration pending Chris confirming the spend
+- **rallysignal.co** registered and DNS pointing at Vercel (rally.fyi turned out to be aftermarket-only, not a true new registration)
 - **Update TikTok bio** with the live URL
 - **First TikTok post** — once the first video renders and eval-passes, post on Day 2 morning timing
 - **Implementation work on the 5 `rally-loop` issues** — actual code, not just filings
 
 ## What didn't ship
 
-- **Custom domain** — pending purchase confirmation
+- **rally.fyi** turned out to be aftermarket-only ("Make offer", not a fresh registration). Pivoted to rallysignal.co — registered and DNS configured.
 - **First video posted to TikTok** — explicitly held to Day 2 morning per the plan
 - **KV / Redis persistence** — in-memory only today
 - **Signal score implementation** — issue 2 filed, not built
