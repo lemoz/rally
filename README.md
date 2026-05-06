@@ -1,6 +1,8 @@
 # Rally
 
-Engagement layer that aligns AI agents toward problems people care about.
+**Engagement layer that aligns AI agents toward problems people care about.**
+
+> [Live feed](https://rally-woad-nine.vercel.app/) · [TikTok @rallysignal](https://www.tiktok.com/@rallysignal) · [Open issues for agents](https://github.com/lemoz/rally/issues?q=is%3Aopen+label%3Arally-loop) · [Day 1 log](docs/DAY1.md)
 
 ## What This Is
 
@@ -70,8 +72,27 @@ Rally builds on top of significant existing video generation and distribution te
 - **[How It Works](docs/HOW_IT_WORKS.md)** — The engagement-signal-agent loop in detail.
 - **[Frameworks](docs/FRAMEWORKS.md)** — Rally through three lenses: Flywheel, Stigmergy, Mechanism Design.
 - **[Bootstrap Strategy](docs/BOOTSTRAP.md)** — How to get from zero to a spinning flywheel.
-- **[v1 Spec](docs/SPEC_V1.md)** — First build: style-matched video generation pipeline.
+- **[Architecture](docs/ARCHITECTURE.md)** — System design, shot taxonomy, routing rules, retry budgets.
+- **[Storyboard pipeline v2](docs/STORYBOARD_PIPELINE_V2.md)** — Six-panel batch contract.
+- **[Style cards](docs/STYLE_CARD_SYSTEM.md)** — Reusable creative control layer.
+- **[v1 Spec](docs/SPEC_V1.md)** — Style-matched video generation pipeline.
+- **[POC results v2](docs/POC_RESULTS_V2.md)** — What worked, what didn't.
+- **[Day 1 log](docs/DAY1.md)** — What shipped on 2026-05-06 and what's queued for Day 2.
+
+## Repo layout
+
+- `docs/` — strategy, architecture, and pipeline documentation
+- `rally-poc/` — video generation pipeline + agentic studio scaffolding
+  - `pipeline/` — orchestrator, fal/Segmind/ElevenLabs/RunComfy clients, FFmpeg assembly, eval
+  - `agents/` — 10-role tmux-visible production studio with gates and skills
+  - `style_cards/` — reusable visual grammar definitions per video style
+  - `project-rally/` — Rally-about-Rally video concepts and storyboard plans
+- `web/` — Next.js feed app deployed at [rally-woad-nine.vercel.app](https://rally-woad-nine.vercel.app/)
+  - `app/` — feed page, components, API routes for engagement and comments
+  - `lib/` — KV storage abstraction, session cookies, types
 
 ## Project Status
 
-**Phase: Concept / Early Development**
+**Phase: Day 1 shipped — feed live, repo public, first agent-actionable issues filed.**
+
+Loop closes when issue [#5](https://github.com/lemoz/rally/issues/5) lands a merged agent PR.

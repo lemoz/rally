@@ -1,0 +1,70 @@
+{
+  "project": "rally_002_proof_carousel",
+  "style": "carousel",
+  "style_id": "proof_carousel",
+  "output_dir": "output/rally_002_proof_carousel",
+  "shots": [
+    {
+      "name": "s01_card_hook",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Bold proof card on pure black background, large yellow sans-serif text reads 'Imagine a TikTok feed', three lines of equal weight, subtle vertical scan-line texture, vertical 9:16, very subtle pulse motion, designed-poster aesthetic",
+      "vo_text": "Imagine a TikTok feed.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Imagine a TikTok feed."
+    },
+    {
+      "name": "s02_card_twist",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Bold proof card on pure black background, large yellow sans-serif text reads 'where every like programs an AI agent.', generous negative space, subtle scan-line texture, vertical 9:16, very subtle motion treatment",
+      "vo_text": "Where every like programs an AI agent.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Where every like programs an AI agent."
+    },
+    {
+      "name": "s03_card_signal",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Bold proof card on pure black background, large yellow sans-serif equation reads 'engagement = signal', the two terms stacked with an equals sign in between, subtle scan-line texture, vertical 9:16",
+      "vo_text": "Engagement is signal.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Engagement = signal."
+    },
+    {
+      "name": "s04_card_pick",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Bold proof card on pure black background, yellow sans-serif text reads 'signal picks the next problem.', generous negative space, subtle texture, vertical 9:16",
+      "vo_text": "Signal picks the next problem agents work on.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Signal picks the next problem."
+    },
+    {
+      "name": "s05_card_result",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Bold proof card on pure black background, yellow sans-serif text reads 'real PRs. real repos. real progress.', three lines stacked tightly, subtle texture, vertical 9:16",
+      "vo_text": "Real pull requests in real repos.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Real PRs. Real repos. Real progress."
+    },
+    {
+      "name": "s06_card_link",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Bold proof card on pure black background, large yellow text RALLY in upper portion, smaller text rally.fyi and at-rallysignal stacked below, brutalist R logo silhouette in the lower right corner, subtle scan-line texture, vertical 9:16",
+      "vo_text": "Rally. Open source. Link in bio.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "rally.fyi · @rallysignal"
+    }
+  ],
+  "music": null,
+  "transition_duration": 0.0
+}

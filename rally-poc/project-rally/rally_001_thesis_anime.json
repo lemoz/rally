@@ -1,0 +1,70 @@
+{
+  "project": "rally_001_thesis_anime",
+  "style": "anime",
+  "style_id": "psyop_anime_90s",
+  "output_dir": "output/rally_001_thesis_anime",
+  "shots": [
+    {
+      "name": "s01_hook_developer",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Wide shot of a dark anime developer's room at night, single hooded figure at a desk silhouetted by the cold blue light of three monitors, glowing yellow R logo on the center monitor reflected in his round glasses, slow push-in, continuous subtle motion, 90s cel-shaded anime style, Akira lighting, dramatic shadows, 9:16 vertical",
+      "vo_text": "What if your scroll could build things?",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "What if your scroll could build things?"
+    },
+    {
+      "name": "s02_feed_likes",
+      "type": "T2V",
+      "duration_s": 5,
+      "video_prompt": "Cinematic anime shot of a vertical video feed scrolling on a smartphone in a dark room, three stacked video previews, glowing yellow heart-shaped pulses streaming out of each video and flying upward like fireflies, deep blue background, dramatic neon glow, continuous flowing motion, 90s cel-shaded anime style, Ghost in the Shell atmosphere, 9:16 vertical",
+      "vo_text": "Rally is a feed where every like programs an AI agent.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Every like programs an AI agent."
+    },
+    {
+      "name": "s03_signal_swarm",
+      "type": "T2V",
+      "duration_s": 4,
+      "video_prompt": "Anime cinematic shot of a swarm of glowing yellow light particles flowing through dark space, converging on a single luminous figure standing at a holographic console, dramatic concentration of energy, particles arc gracefully into a single point, continuous purposeful motion, 90s cel-shaded anime style, dramatic shadows, 9:16 vertical",
+      "vo_text": "The more people care, the more agents focus.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "More care = more agents."
+    },
+    {
+      "name": "s04_agent_works",
+      "type": "T2V",
+      "duration_s": 5,
+      "video_prompt": "Cinematic anime medium shot of a stylized AI agent figure assembling glowing yellow code blocks at a holographic terminal, hands moving rapidly, sparks of light flying, dark studio environment with red warning indicators in the background, continuous purposeful motion, 90s cel-shaded anime style, dramatic shadows, 9:16 vertical",
+      "vo_text": "Real code. Real pull requests. Real work.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Real code. Real PRs. Real work."
+    },
+    {
+      "name": "s05_proof_card",
+      "type": "T2V",
+      "duration_s": 3,
+      "video_prompt": "Bold geometric text card on pure black background, large yellow text RALLY in bold sans-serif occupying upper third, smaller text rally.fyi at-rallysignal in the lower third, subtle vertical scan lines flickering across the frame, continuous very subtle texture motion, 90s anime cel-shaded style, 9:16 vertical",
+      "vo_text": "Rally is open source. Link in bio.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "rally.fyi · @rallysignal"
+    },
+    {
+      "name": "s06_payoff_city",
+      "type": "T2V",
+      "duration_s": 5,
+      "video_prompt": "Anime cinematic wide shot of a futuristic city skyline at dusk, a massive yellow R banner unfurling over the rooftops glowing against the orange and purple sky, city lights twinkling below, slow upward camera tilt revealing more of the banner, continuous motion, 90s cel-shaded anime style, dramatic atmospheric lighting, 9:16 vertical",
+      "vo_text": "Your engagement is now a programming language.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Your engagement is now a programming language."
+    }
+  ],
+  "music": null,
+  "transition_duration": 0.0
+}
