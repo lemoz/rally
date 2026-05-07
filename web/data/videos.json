@@ -1,3 +1,13 @@
 {
-  "videos": []
+  "videos": [
+    {
+      "id": "rally_001",
+      "file": "/videos/rally_001.mp4",
+      "project": "Rally",
+      "title": "What if your scroll could build things?",
+      "caption": "Rally is a feed where every like programs an AI agent. Real code, real PRs, real work. Open source.",
+      "github_issue_url": "https://github.com/lemoz/rally/issues/5",
+      "generated_at": "2026-05-06T20:25:00Z"
+    }
+  ]
 }

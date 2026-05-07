@@ -47,12 +47,12 @@
     {
       "name": "s05_proof_card",
       "type": "T2V",
-      "duration_s": 3,
-      "video_prompt": "Bold geometric text card on pure black background, large yellow text RALLY in bold sans-serif occupying upper third, smaller text rally.fyi at-rallysignal in the lower third, subtle vertical scan lines flickering across the frame, continuous very subtle texture motion, 90s anime cel-shaded style, 9:16 vertical",
+      "duration_s": 4,
+      "video_prompt": "Bold geometric proof card on pure pitch black background, large bright yellow sans-serif text RALLY at upper third of frame, smaller yellow text rallysignal.co stacked beneath it, smaller still text at-rallysignal at the bottom. Slow continuous push-in zoom toward the text the entire shot. Bright vertical scan lines flicker and pulse rapidly across the whole frame. A golden horizontal lens flare drifts left to right across the middle. Tiny yellow particle dust floats slowly upward in the negative space. Continuous obvious motion throughout, never static. 90s anime cel-shaded style, dramatic atmospheric lighting, 9:16 vertical.",
       "vo_text": "Rally is open source. Link in bio.",
       "vo_voice": "Liam",
       "needs_lipsync": false,
-      "subtitle": "rally.fyi · @rallysignal"
+      "subtitle": "rallysignal.co · @rallysignal"
     },
     {
       "name": "s06_payoff_city",
