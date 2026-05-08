@@ -1,0 +1,135 @@
+{
+  "style_id": "montage_buildlog",
+  "version": 1,
+  "status": "candidate",
+  "display_name": "Montage build log",
+  "description": "Series-branded fast-cut montage of small wins stitched together: commit lands, render passes, video posts, engagement arrives, agent picks it up. Models the 'Day N' buildinpublic format and Riley Brown's project-name brand series. High pace, high satisfying-completion density.",
+  "recommended_use": "Recurring 'Day N' updates on Rally's progress. Best for compounding follower growth via series recognition. Each entry shows tangible progress beats stitched together; the series-banner ('Day N: ...') is the through-line.",
+  "reference_notes": [
+    "Series-branded. Every video opens with 'Day N: ...' banner that holds 1.5-2s.",
+    "6-10 fast cuts, each 1.5-3 seconds. No single beat lingers.",
+    "Real captures only — terminal, github, vercel deploy, eval.py output, video player, engagement counters.",
+    "First-person voiceover narrates 'today I shipped X, Y, Z' over the cuts.",
+    "Static caption box per cut holding 1-2s with the win ('eval passed', 'merged', '5 likes').",
+    "Reference library row 27 (itsryan.ai 'Day 6: building your first ai'), row 28 (jun_yuh '7 day plan').",
+    "End with comment-CTA tied to the day's win, e.g. 'comment Day 1 if you watched the launch'."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "rally yellow #facc15",
+      "pure black #000000",
+      "real screen UI colors",
+      "red caption-box accent"
+    ],
+    "camera": [
+      "rapid screen recording crops",
+      "fast cursor motion",
+      "match-cut between successive captures",
+      "no slow pans or cinematic moves"
+    ],
+    "texture": [
+      "raw screen captures only",
+      "consistent series-banner ('Day N: title') in upper third",
+      "static caption boxes per cut",
+      "occasional smash cut with bold text overlay"
+    ],
+    "composition_rules": [
+      "Day N banner must appear in the first 1.5s and remain anchored in upper third.",
+      "Each cut must be 1.5-3s; longer holds break the montage rhythm.",
+      "Real UI fills the frame; no generated b-roll.",
+      "Caption box per cut summarizes the win in 3-7 words.",
+      "Final panel resolves the day with a meta-frame ('Day N: shipped X, Y, Z') and comment-CTA."
+    ]
+  },
+  "story_structure": [
+    "day_banner_open",
+    "win_1",
+    "win_2",
+    "win_3",
+    "win_4",
+    "day_summary_and_cta"
+  ],
+  "caption_treatment": {
+    "position": "bottom_safe_area_with_upper_third_banner",
+    "style": "static red-on-black per-cut captions; persistent yellow-on-black 'Day N' banner in upper third",
+    "max_lines": 2,
+    "fallback_max_lines": 2
+  },
+  "audio": {
+    "voice_mode": "direct_voiceover_first_person",
+    "language": "en",
+    "voice_map": {
+      "narrator": "Liam"
+    },
+    "music": "uplifting_bed_required"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_panels",
+      "day_count_increment",
+      "proof_bearing_panel",
+      "manual_capture_required"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "prefer_real_capture_over_t2v": true,
+    "proof_panels_must_be_source_backed": true,
+    "motion_required_per_video_shot": true,
+    "dialogue_transition_duration": 0.0,
+    "avoid_generated_product_ui": true,
+    "dialogue_voice_must_be_first_person": true,
+    "comment_cta_required_in_final_panel": true,
+    "max_panel_duration_s": 3.0,
+    "min_panel_count": 6,
+    "series_banner_required": true
+  },
+  "routing": {
+    "default_routes": {
+      "day_banner_open": "real screen capture with Day N banner overlay (assembly drawtext)",
+      "win_1": "real screen capture (terminal, vercel, github) of the specific win",
+      "win_2": "real screen capture of next win",
+      "win_3": "real screen capture of next win",
+      "win_4": "real screen capture of next win",
+      "day_summary_and_cta": "static text card with Day N summary and comment-CTA"
+    },
+    "fallback_routes": {
+      "screen_capture_failed_for_one_win": "deterministic proof card from source data; never generated UI",
+      "low_motion_capture": "add deterministic cursor/highlight/zoom in assembly",
+      "fewer_than_6_wins_for_the_day": "consolidate or downgrade to dev_pov_screen_capture style"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "day_banner_visible_in_first_1.5s",
+      "panel_count_at_least_6",
+      "max_panel_duration_under_3s",
+      "first_person_voice_throughout",
+      "static_caption_box_per_cut",
+      "comment_cta_in_final_panel",
+      "real_capture_dominates",
+      "music_bed_present"
+    ],
+    "reject_reasons": [
+      "missing_day_banner",
+      "panel_too_long",
+      "understaffed_storyboard",
+      "narrator_voice_not_first_person",
+      "no_comment_cta",
+      "fake_product_ui",
+      "generated_b_roll_dominates",
+      "prefer_real_capture_violation",
+      "missing_music_bed"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 1,
+      "max_avg_freeze_ratio": 0.15
+    }
+  }
+}

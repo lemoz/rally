@@ -1,0 +1,79 @@
+{
+  "project": "rally_009_hook_c_curiosity",
+  "style": "cinematic_tech",
+  "style_id": "psyop_anime_90s",
+  "output_dir": "output/rally_009_hook_c_curiosity",
+  "shots": [
+    {
+      "name": "s01_controlling",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic first-person POV shot of a hand reaching toward a glowing yellow holographic interface in dark space. Yellow energy emanates from the fingertips. Bold yellow text overlay 'I'm controlling AI agents...' in the upper third. Cyberpunk-tech aesthetic, dramatic atmospheric lighting, photo-realistic, 9:16 vertical.",
+      "video_prompt": "Yellow energy continuously emanates from fingertips. The hand stays poised. The 'I'm controlling AI agents...' text remains crisp. Continuous subtle dramatic motion, 9:16 vertical.",
+      "vo_text": "I'm controlling AI agents...",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "I'm controlling AI agents..."
+    },
+    {
+      "name": "s02_with_likes",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic reveal shot of a thumb tapping a glowing yellow heart icon on a phone screen. The heart bursts into yellow particles. Bold yellow text 'WITH TIKTOK LIKES' fills the upper third. Cyberpunk-tech aesthetic, dramatic close-up, photo-realistic, 9:16 vertical.",
+      "video_prompt": "The thumb continues pressing the heart. The heart bursts into yellow particles that fly outward continuously. The text remains stable. Continuous reveal motion, 9:16 vertical.",
+      "vo_text": "With TikTok likes.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "WITH TIKTOK LIKES"
+    },
+    {
+      "name": "s03_signal_to_agent",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of yellow energy streams flowing from a phone screen toward a sleek AI agent figure in dark space. The agent's eye glows yellow as it receives the energy. Cyberpunk-tech aesthetic, atmospheric particle effects, photo-realistic 3D render, 9:16 vertical.",
+      "video_prompt": "Yellow energy streams continuously flow from phone toward the agent. The agent's eye glows brighter. Continuous flowing motion, 9:16 vertical.",
+      "vo_text": "And this is day one.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Day 1"
+    },
+    {
+      "name": "s04_proof_repo",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of a futuristic translucent holographic GitHub-style interface floating in dark space. Code lines flow upward like luminous yellow rivers. Particles of yellow light orbit. Cyberpunk-tech aesthetic, dramatic depth of field, photo-realistic 3D render, 9:16 vertical.",
+      "video_prompt": "Code lines continuously flow upward as luminous yellow streams. Particles orbit the interface. Slow camera dolly forward. Continuous flowing motion, 9:16 vertical.",
+      "vo_text": "The repo is public. The feed is live. The agent is ready.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "live · open source"
+    },
+    {
+      "name": "s05_tomorrow",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of a glowing yellow checkmark forming from converging yellow light particles in dark space. Energy waves radiate outward. Cyberpunk-tech aesthetic, atmospheric lighting, photo-realistic 3D render, 9:16 vertical.",
+      "video_prompt": "Yellow particles continuously converge into the checkmark. Energy waves radiate outward in concentric rings. Continuous gathering motion, 9:16 vertical.",
+      "vo_text": "Tomorrow, it ships its first pull request.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "first agent PR coming"
+    },
+    {
+      "name": "s06_cta",
+      "type": "I2V",
+      "duration_s": 5,
+      "image_prompt": "Hero shot of the bold yellow Rally R logo glowing in dark void. Yellow particles orbit. Text 'rallysignal.co' below. Cyberpunk-tech aesthetic, ultra-dramatic atmospheric lighting, photo-realistic, 9:16 vertical.",
+      "video_prompt": "The yellow R logo pulses with light. Yellow particles orbit slowly. Continuous gentle motion, hero ending shot, 9:16 vertical.",
+      "vo_text": "Comment merge if you'd build this.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "comment 'merge' to vote"
+    }
+  ],
+  "music": {
+    "path": "music/rally_001_score.wav",
+    "volume": 0.40
+  },
+  "transition_duration": 0.0
+}

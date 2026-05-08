@@ -4,6 +4,7 @@
   "status": "candidate",
   "display_name": "Creator reaction trend",
   "description": "TikTok-native reaction/remix format built around comments, surprise hooks, source screenshots, and fast product proof.",
+  "recommended_use": "Reactive/remix posts referencing other creators, news beats, or trending moments. Best when there's a real external thing to react to (a tweet, a release, a competitor launch). Not for first-person Rally-about-Rally pitches.",
   "reference_notes": [
     "Use the language of creator reaction videos without depending on copyrighted music in the generated file.",
     "Open with a surprised or skeptical claim that the viewer can verify on screen.",

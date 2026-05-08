@@ -4,6 +4,7 @@
   "status": "candidate",
   "display_name": "Proof carousel",
   "description": "Save-worthy vertical slide deck that explains a project through deterministic cards, screenshots, and crisp claims.",
+  "recommended_use": "High-volume, save-optimized, muted-viewing. Best when the content is dense or stat-heavy and survives without sound. NOTE: rally_002 attempt failed because pure text-card T2V generation can't add motion; this card needs a deterministic FFmpeg/Remotion path before it's production-ready.",
   "reference_notes": [
     "Optimize for saves and dwell time rather than cinematic motion.",
     "Every slide should communicate one idea.",

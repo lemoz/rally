@@ -68,3 +68,47 @@ Generate in this order:
 3. `proof_carousel`
 
 Do not generate all three until the first one produces a clean factual capture and a usable assembly path. If real capture is blocked, switch immediately to `proof_carousel`.
+
+---
+
+## Style Decision Criteria
+
+Until @rallysignal has real engagement data (≥7 days post-launch with 5+ posts), style decisions cannot be made on view counts. We use three explicit proxies:
+
+### 1. Native-feel test
+When the unmuted MP4 plays on a phone alongside 3 unrelated dev TikToks pulled from the For You feed, can a third-party viewer (Chris + 1-2 dev friends if available, otherwise Chris alone) tell which one is the AI-generated outlier within 3 seconds?
+- **Pass** = no, it blends in
+- **Fail** = yes, it stands out as overproduced or "ad-like"
+
+This codifies the trend doc's finding: *"Authenticity beats production value — raw, phone-shot content sees 31% higher engagement; the algorithm deprioritizes overproduced content as 'ad-like.'"*
+
+### 2. Hook integrity at 2s
+Does a viewer, on mute, with no prior context, understand the project or get a reason to keep watching after 2 seconds? Test against:
+- The first-frame screenshot alone (does the still composition convey?)
+- The 0–2s loop (does the motion + caption combination convey?)
+
+- **Pass** = yes on both
+- **Fail** = either fails
+
+This codifies the trend doc's finding: *"~70% watch-through required for viral distribution. Videos that don't hook in 2-3 seconds rarely exceed 10K views."*
+
+### 3. Save-worthy moment
+Is there a single frame or beat a viewer would screenshot, share, or send to a friend?
+- **Pass** = yes, with a specific timestamp
+- **Fail** = no obvious moment
+
+This codifies the trend doc's finding: *"Save value is the strongest 2026 algorithm signal. Photo carousels and listicles overperform because individual slides are screenshot-worthy."*
+
+### Use of these criteria
+
+These are **proxies, not metrics**. They replace data we don't have yet. Once 5+ posts have ≥7 days of engagement data, real watch-through and save rates take over and these criteria become secondary triangulation only.
+
+### Decision rule
+
+When comparing N renders, score each on the three criteria + Chris's gut score (1-10). Top-1 by gut score (with criteria as triangulation, weighted 70/30 gut/criteria) becomes Rally's primary style for the next 1-2 weeks. Top-2 is secondary.
+
+---
+
+## Style Comparison Files
+
+When multiple renders of the same content exist across styles, comparison lives in `docs/STYLE_COMPARISON_*.md` (one file per comparison batch). See `STYLE_COMPARISON_RALLY_001_005.md` for the first comparison.

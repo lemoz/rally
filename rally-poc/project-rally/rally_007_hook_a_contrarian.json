@@ -1,0 +1,79 @@
+{
+  "project": "rally_007_hook_a_contrarian",
+  "style": "cinematic_tech",
+  "style_id": "psyop_anime_90s",
+  "output_dir": "output/rally_007_hook_a_contrarian",
+  "shots": [
+    {
+      "name": "s01_dead_text",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Massive bold yellow text reading 'CODING IS DEAD' filling the center of the frame on a deep black background. Text has subtle scan-line texture and slight chromatic aberration. Tiny yellow particles drift slowly across the frame. Cinematic, dramatic, ultra-high contrast, photo-realistic 3D render quality, 9:16 vertical composition.",
+      "video_prompt": "The bold yellow CODING IS DEAD text remains crisp and stable. Yellow particles continue drifting across the frame. A subtle horizontal scan line sweeps slowly from left to right. Continuous gentle dramatic motion, hero text card, 9:16 vertical.",
+      "vo_text": "Coding is dead.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "CODING IS DEAD"
+    },
+    {
+      "name": "s02_agents_build",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of a sleek AI agent silhouette assembling glowing yellow holographic code blocks at a futuristic terminal in dark space. Yellow sparks fly. Streams of code visible in the background. Cyberpunk-tech aesthetic, dramatic shadows, photo-realistic, 9:16 vertical.",
+      "video_prompt": "Agent's hands move rapidly assembling glowing yellow code blocks. Sparks continuously fly. Code streams scroll. Slow camera push-in. Continuous purposeful motion, 9:16 vertical.",
+      "vo_text": "AI agents now build software.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "AI agents build software"
+    },
+    {
+      "name": "s03_tiktok_likes",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of a holographic vertical phone feed in dark space. Yellow heart-shaped particles stream upward from the feed. The phone glows softly at its edges. Dark cyberpunk-tech aesthetic, atmospheric particle effects, photo-realistic, 9:16 vertical.",
+      "video_prompt": "Yellow heart particles continuously stream upward from the holographic phone feed. The phone slowly rotates. Continuous flowing motion, atmospheric energy, 9:16 vertical.",
+      "vo_text": "Based on TikTok likes.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Based on TikTok likes"
+    },
+    {
+      "name": "s04_not_joking",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic first-person POV of a hooded figure at a desk facing three monitors in a dark studio. The center monitor shows a glowing yellow R logo. Subtle glow on the figure's glasses. Cyberpunk-tech aesthetic, dramatic atmospheric lighting, photo-realistic, 9:16 vertical.",
+      "video_prompt": "Slow forward dolly-in toward the glowing yellow R logo on the center monitor. Particles drift slowly. Continuous cinematic motion, 9:16 vertical.",
+      "vo_text": "I'm not joking. This exists.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "rally is real"
+    },
+    {
+      "name": "s05_proof",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic explosion of yellow light particles bursting outward from the word PASS forming in bold yellow letters in dark space. Energy waves radiate. Cyberpunk-tech aesthetic, ultra-dramatic lighting, photo-realistic 3D render, 9:16 vertical.",
+      "video_prompt": "Yellow particles burst outward continuously. PASS text becomes more luminous. Energy waves radiate in concentric rings. Continuous explosive motion, 9:16 vertical.",
+      "vo_text": "Day one shipped a public repo, a live feed, and five real agent tasks.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Day 1 shipped"
+    },
+    {
+      "name": "s06_cta",
+      "type": "I2V",
+      "duration_s": 5,
+      "image_prompt": "Hero shot of the bold yellow Rally R logo glowing in the center of dark void. Yellow particles orbit. Subtle scan lines flicker. Text 'rallysignal.co' below in smaller yellow letters. Cyberpunk-tech aesthetic, ultra-dramatic atmospheric lighting, photo-realistic, 9:16 vertical.",
+      "video_prompt": "The yellow R logo pulses with light. Yellow particles orbit slowly in rotation. Horizontal scan lines sweep across. Continuous gentle motion, hero ending shot, 9:16 vertical.",
+      "vo_text": "Comment merge if you'd build this.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "comment 'merge' to vote"
+    }
+  ],
+  "music": {
+    "path": "music/rally_001_score.wav",
+    "volume": 0.40
+  },
+  "transition_duration": 0.0
+}

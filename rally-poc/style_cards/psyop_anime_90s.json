@@ -4,6 +4,7 @@
   "status": "locked_poc",
   "display_name": "PsyopAnime-inspired 90s anime drama",
   "description": "Character-driven short-form anime drama with Japanese dialogue, English subtitles, source-backed real-person caricatures, and deterministic proof handling.",
+  "recommended_use": "Dramatized re-tellings of real news, research, or external project narratives (e.g., the Glasswing/Mythos story this card was built for). NOT for first-person pitches of Rally itself — the cinematic anime aesthetic reads as 'ad-like' for a project-about-itself. For Rally pitches, use dev_pov_screen_capture or talking_head_no_face.",
   "reference_notes": [
     "Character-driven scenes instead of explainer narration.",
     "Use dramatic eye close-ups for high-stakes beats.",

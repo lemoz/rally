@@ -65,6 +65,9 @@
       "subtitle": "Your engagement is now a programming language."
     }
   ],
-  "music": null,
+  "music": {
+    "path": "music/rally_001_score.wav",
+    "volume": 0.40
+  },
   "transition_duration": 0.0
 }

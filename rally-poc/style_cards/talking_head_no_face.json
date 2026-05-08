@@ -1,0 +1,133 @@
+{
+  "style_id": "talking_head_no_face",
+  "version": 1,
+  "status": "candidate",
+  "display_name": "Talking head, no face",
+  "description": "First-person voiceover with a recurring face-stand-in (anime portrait, motion graphic, or stylized R-mark) intercut with real captures of GitHub, terminal, and product UI. Captures the talking-head energy of Riley Brown / Sabrina Ramonov / vibecoding creators without requiring on-camera presence.",
+  "recommended_use": "Rally pitch and thesis content where personality matters but on-camera presence is off-table. The face-stand-in becomes a brand mark over time. Best for: project announcements, decisions narrated in first person, reactions to engagement signal.",
+  "reference_notes": [
+    "First-person script. The stand-in 'speaks' on behalf of the builder.",
+    "Static caption boxes hold 2-4s, mirroring Riley Brown's red-on-black overlay pattern.",
+    "Stand-in is a single recurring visual asset (anime portrait, R-mark with mouth, or motion graphic).",
+    "Cuts between stand-in and real capture should average 1 cut every 2-3 seconds.",
+    "Reference library row 13-16 (Sabrina Ramonov, Mariah Brunner — talking head + branded education).",
+    "If the stand-in feels uncanny in eval, this card's failure is the cue to consider real-Chris-on-camera.",
+    "End with explicit comment-CTA, e.g. 'comment merge if you'd build this'."
+  ],
+  "visual_grammar": {
+    "aspect_ratio": "9:16",
+    "storyboard_layout": "3x2_on_16x9_sheet",
+    "palette": [
+      "rally yellow #facc15",
+      "pure black #000000",
+      "real GitHub UI",
+      "terminal black",
+      "red caption-box accent"
+    ],
+    "camera": [
+      "stand-in centered with shoulder-up framing",
+      "screen recording crop for cutaways",
+      "subtle push-in on stand-in during emphasis beats",
+      "fast match-cuts between stand-in and screen"
+    ],
+    "texture": [
+      "consistent stand-in identity across all panels",
+      "static caption boxes with bold text",
+      "real screen captures as cutaway b-roll",
+      "no cinematic bokeh or color grading"
+    ],
+    "composition_rules": [
+      "Stand-in shot type matches face-camera framing (shoulder-up, eyes engaged).",
+      "Cutaways to real screen happen on key claims, not cosmetically.",
+      "Caption boxes occupy bottom 25% or upper 25%, never cover the stand-in's face area.",
+      "Stand-in must remain visually consistent across all panels — same color palette, same composition style.",
+      "Final panel returns to stand-in centered with the comment-CTA caption."
+    ]
+  },
+  "story_structure": [
+    "stand_in_hook",
+    "first_person_claim",
+    "real_capture_proof",
+    "stand_in_reaction",
+    "result_or_demo",
+    "comment_cta"
+  ],
+  "caption_treatment": {
+    "position": "bottom_safe_area_or_upper_third",
+    "style": "static red-on-black box with bold white text, 2-4s holds",
+    "max_lines": 2,
+    "fallback_max_lines": 3
+  },
+  "audio": {
+    "voice_mode": "direct_voiceover_first_person",
+    "language": "en",
+    "voice_map": {
+      "narrator": "Liam"
+    },
+    "music": "low_background_optional"
+  },
+  "storyboard": {
+    "default_batch_size": 6,
+    "max_batch_size": 6,
+    "layout": "3x2_on_16x9_sheet",
+    "new_batch_triggers": [
+      "more_than_6_panels",
+      "stand_in_identity_change",
+      "proof_bearing_panel",
+      "manual_capture_required"
+    ]
+  },
+  "generation_rules": {
+    "default_storyboard_batch_size": 6,
+    "stand_in_identity_consistent_across_panels": true,
+    "proof_panels_must_be_source_backed": true,
+    "motion_required_per_video_shot": true,
+    "dialogue_transition_duration": 0.0,
+    "avoid_generated_product_ui": true,
+    "dialogue_voice_must_be_first_person": true,
+    "comment_cta_required_in_final_panel": true,
+    "match_cut_average_interval_s": 2.5
+  },
+  "routing": {
+    "default_routes": {
+      "stand_in_hook": "NB2 generated stand-in (anime portrait or R-mark) with subtle motion",
+      "first_person_claim": "NB2 stand-in close-up + caption box overlay",
+      "real_capture_proof": "real screen recording (terminal, github, browser) with annotation",
+      "stand_in_reaction": "NB2 stand-in with motion-intent (eye dart, head turn, expression shift)",
+      "result_or_demo": "real screen recording at moment of result",
+      "comment_cta": "static text card with rally yellow background OR stand-in centered with caption"
+    },
+    "fallback_routes": {
+      "stand_in_hook": "static stand-in image with assembly motion overlay",
+      "stand_in_reaction": "static stand-in with assembly zoom/pulse effect",
+      "screen_capture_failed": "operator-provided screenshot or proof card",
+      "stand_in_drift_between_panels": "regenerate panel with explicit reference image of locked stand-in"
+    }
+  },
+  "qa": {
+    "pass_checks": [
+      "stand_in_identity_consistent_across_all_panels",
+      "first_person_voice_throughout",
+      "static_caption_box_present_with_2to4s_holds",
+      "comment_cta_in_final_panel",
+      "real_capture_used_for_factual_claims",
+      "no_fake_product_ui",
+      "stand_in_does_not_feel_uncanny"
+    ],
+    "reject_reasons": [
+      "stand_in_identity_drift",
+      "narrator_voice_not_first_person",
+      "caption_too_subtle",
+      "no_comment_cta",
+      "fake_product_ui",
+      "stand_in_uncanny_valley",
+      "too_polished_ad_feel",
+      "match_cut_interval_too_slow"
+    ],
+    "eval_thresholds": {
+      "max_failed_shots": 0,
+      "max_warning_shots": 1,
+      "max_avg_freeze_ratio": 0.15
+    }
+  }
+}

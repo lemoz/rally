@@ -4,6 +4,7 @@
   "status": "candidate",
   "display_name": "Before/after transformation",
   "description": "Fast transformation format that shows the painful old workflow, the project intervention, and the improved result.",
+  "recommended_use": "Projects with a credible visible delta. The split-screen contrast carries the message; weak or invisible deltas make the format feel forced. Best for tools that meaningfully change a workflow or output.",
   "reference_notes": [
     "Show the after/result first, then rewind to the before state.",
     "The viewer should understand the transformation without audio.",

@@ -1,0 +1,79 @@
+{
+  "project": "rally_006_cinematic_tech",
+  "style": "cinematic_tech",
+  "style_id": "psyop_anime_90s",
+  "output_dir": "output/rally_006_cinematic_tech",
+  "shots": [
+    {
+      "name": "s01_hook_pov",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic first-person POV from inside a dark studio at night. A hooded figure sits at a desk facing three large curved monitors. The center monitor displays a massive bold yellow letter R logo glowing brilliantly. The yellow glow reflects on the figure's round glasses and across the dark room. Particles of yellow light drift slowly in the air. Cyberpunk-tech aesthetic, ultra-cinematic dramatic lighting, deep shadows, anamorphic lens, photo-realistic, 9:16 vertical composition, ultra high quality.",
+      "video_prompt": "Slow cinematic dolly-in toward the glowing yellow R logo on the center monitor. The hooded figure remains still in silhouette. Particles of yellow light drift slowly and continuously across the frame. The R logo subtly pulses with light. Continuous dramatic motion, cinematic camera move, 9:16 vertical.",
+      "vo_text": "I'm building a TikTok feed where every like programs an AI agent.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Day 1 of Rally"
+    },
+    {
+      "name": "s02_feed_reveal",
+      "type": "I2V",
+      "duration_s": 5,
+      "image_prompt": "Cinematic shot of a vertical holographic smartphone feed floating in dark void space. Three stacked video cards visible on the holographic display, each emitting glowing yellow heart-shaped particles that stream upward. The phone is translucent, glowing yellow at the edges. Cinematic depth of field, dark cyberpunk-tech aesthetic, dramatic atmospheric lighting, particle effects, photo-realistic 3D render quality, 9:16 vertical.",
+      "video_prompt": "Glowing yellow heart-shaped particles stream upward from each video card on the floating holographic phone. The phone slowly rotates toward camera. Yellow particles continue to spawn and drift upward continuously. Dramatic atmospheric motion, cinematic camera, 9:16 vertical.",
+      "vo_text": "Watch this. Rally is a feed where every like programs an AI agent.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Every like programs an AI"
+    },
+    {
+      "name": "s03_signal_swarm",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of thousands of glowing yellow light particles converging through dark space toward a single luminous figure standing at a holographic terminal. The particles arc gracefully like a meteor shower flowing inward. The figure is silhouetted, surrounded by yellow energy. Dark cyberpunk void background, dramatic lighting, ultra-cinematic, atmospheric particle effects, photo-realistic, 9:16 vertical composition.",
+      "video_prompt": "Yellow light particles flow continuously from all sides of the frame, converging toward the central figure at the holographic terminal. The convergence accelerates dramatically. Slow camera dolly-in toward the figure. Continuous flowing motion, cinematic atmosphere, 9:16 vertical.",
+      "vo_text": "The more people care, the more agents focus.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Engagement = signal"
+    },
+    {
+      "name": "s04_agent_works",
+      "type": "I2V",
+      "duration_s": 5,
+      "image_prompt": "Cinematic close-up of a sleek AI agent silhouette assembling glowing yellow holographic code blocks at a dark futuristic terminal. Yellow sparks fly from the assembly point. Code lines visible in yellow on the terminal screen behind. Dark studio environment with red warning indicators in the deep background. Cyberpunk-tech aesthetic, dramatic shadows, anamorphic lens, photo-realistic, 9:16 vertical composition.",
+      "video_prompt": "The agent's hands move rapidly, assembling glowing yellow code blocks one onto another. Sparks fly continuously from the assembly point. New code lines scroll up the terminal in yellow. Slow camera push-in toward the working hands. Continuous purposeful motion, dramatic energy, 9:16 vertical.",
+      "vo_text": "Real code. Real pull requests. Real work.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Real code. Real PRs."
+    },
+    {
+      "name": "s05_burst_pass",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic explosion of bright yellow light particles bursting outward from a central point in dark void space. The word PASS forms from the converging particles in bold yellow letters. Dramatic energy radiates outward. Particle dust drifts in the foreground. Cyberpunk-tech aesthetic, ultra-dramatic lighting, photo-realistic 3D render quality, 9:16 vertical composition.",
+      "video_prompt": "Yellow light particles burst outward from the center continuously. The word PASS becomes more solid and luminous as particles converge on it. Energy waves radiate outward in concentric rings. Continuous explosive motion, cinematic, 9:16 vertical.",
+      "vo_text": "Tomorrow, the agent picks the highest signal issue and ships a pull request.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "the loop closes"
+    },
+    {
+      "name": "s06_brand_payoff",
+      "type": "I2V",
+      "duration_s": 5,
+      "image_prompt": "Cinematic hero shot of the bold yellow Rally R logo glowing brilliantly in the center of a dark void. Yellow particles orbit the logo like a solar system. Subtle horizontal scan lines flicker across the frame. The text RALLY appears in bold below the logo with smaller text rallysignal.co beneath. Cyberpunk-tech aesthetic, ultra-dramatic atmospheric lighting, photo-realistic 3D render quality, 9:16 vertical composition.",
+      "video_prompt": "The yellow R logo pulses with light continuously. Yellow particles continuously orbit the logo in slow rotation. Horizontal scan lines sweep across the frame from left to right. Text RALLY remains crisp and bold. Continuous gentle dramatic motion, hero ending shot, 9:16 vertical.",
+      "vo_text": "Rally. Open source. Comment merge if you'd build this.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "rallysignal.co · @rallysignal"
+    }
+  ],
+  "music": {
+    "path": "music/rally_001_score.wav",
+    "volume": 0.40
+  },
+  "transition_duration": 0.0
+}

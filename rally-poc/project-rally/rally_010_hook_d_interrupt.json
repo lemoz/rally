@@ -1,0 +1,79 @@
+{
+  "project": "rally_010_hook_d_interrupt",
+  "style": "cinematic_tech",
+  "style_id": "psyop_anime_90s",
+  "output_dir": "output/rally_010_hook_d_interrupt",
+  "shots": [
+    {
+      "name": "s01_using_wrong",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic close-up of a thumb mindlessly scrolling a generic-looking smartphone feed in dim ambient light. The faces and content on screen are blurred. Bold red text 'YOU'RE USING TIKTOK WRONG' fills the upper third in dramatic typography. Photo-realistic, dark cinematic, 9:16 vertical.",
+      "video_prompt": "Thumb scrolls down repeatedly, blurred content slides past. The bold red text remains crisp and stable. Subtle vibration as fingers tap. Continuous scrolling motion, 9:16 vertical.",
+      "vo_text": "You're using TikTok wrong.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "YOU'RE USING TIKTOK WRONG"
+    },
+    {
+      "name": "s02_could_be_programming",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic split-screen reveal: left side shows a thumb tapping a heart icon on a phone, right side shows yellow energy bursting out of the heart and flowing toward an AI agent figure in dark cyberpunk space. Bold yellow text 'every like = AI agent commit' floats between. Photo-realistic, dramatic lighting, 9:16 vertical.",
+      "video_prompt": "Thumb taps the heart, yellow energy bursts out and flows continuously to the right toward the agent. The text remains stable. Continuous flowing energy motion, 9:16 vertical.",
+      "vo_text": "Every like you give could be programming an AI agent.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "every like = AI commit"
+    },
+    {
+      "name": "s03_right_now",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of a sleek AI agent silhouette working rapidly at a holographic terminal in dark space. Glowing yellow code cascades down the screen. Yellow sparks fly from the agent's hands. Bold yellow text 'RIGHT NOW' visible in the upper third. Cyberpunk-tech aesthetic, photo-realistic 3D render, 9:16 vertical.",
+      "video_prompt": "Agent's hands move rapidly. Yellow code cascades continuously down the screen. Yellow sparks fly. Continuous frantic purposeful motion, 9:16 vertical.",
+      "vo_text": "Right now.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "RIGHT NOW"
+    },
+    {
+      "name": "s04_proof",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic shot of a glowing green checkmark and bold yellow text 'PR MERGED' on a futuristic holographic GitHub-style interface in dark space. Yellow particles emanate from the checkmark. Photo-realistic 3D render, dramatic lighting, 9:16 vertical.",
+      "video_prompt": "Green checkmark fades in and pulses brightly. Yellow particles burst outward continuously. The PR MERGED text remains stable. Continuous celebratory motion, 9:16 vertical.",
+      "vo_text": "Real likes. Real code. Real pull requests.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Real PRs"
+    },
+    {
+      "name": "s05_rally_is_live",
+      "type": "I2V",
+      "duration_s": 4,
+      "image_prompt": "Cinematic POV shot of a large glowing yellow R logo on a curved monitor in a dark studio. Yellow light reflects across the room. Tiny yellow particles drift through the air. Cyberpunk-tech aesthetic, dramatic atmospheric lighting, photo-realistic, 9:16 vertical.",
+      "video_prompt": "Slow camera push-in toward the yellow R logo. Particles drift slowly across the frame. The R logo pulses gently. Continuous cinematic motion, 9:16 vertical.",
+      "vo_text": "Rally is live. Day one.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "Rally is live"
+    },
+    {
+      "name": "s06_cta",
+      "type": "I2V",
+      "duration_s": 5,
+      "image_prompt": "Hero shot of the bold yellow Rally R logo glowing in dark void. Yellow particles orbit. Text 'rallysignal.co' below. Cyberpunk-tech aesthetic, ultra-dramatic atmospheric lighting, photo-realistic, 9:16 vertical.",
+      "video_prompt": "The yellow R logo pulses with light. Yellow particles orbit slowly. Continuous gentle motion, hero ending shot, 9:16 vertical.",
+      "vo_text": "Comment merge if you'd build this.",
+      "vo_voice": "Liam",
+      "needs_lipsync": false,
+      "subtitle": "comment 'merge' to vote"
+    }
+  ],
+  "music": {
+    "path": "music/rally_001_score.wav",
+    "volume": 0.40
+  },
+  "transition_duration": 0.0
+}

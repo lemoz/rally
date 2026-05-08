@@ -4,6 +4,7 @@
   "status": "candidate",
   "display_name": "Raw demo build log",
   "description": "Low-polish screen-recording style that feels like a creator discovering or testing a project in real time.",
+  "recommended_use": "Single-product demos and walkthroughs. Best for showing a tool in action with a 'here's what this does' frame. For first-person POV of the builder discovering or reacting, use dev_pov_screen_capture instead. For Day-N progress series, use montage_buildlog.",
   "reference_notes": [
     "Authentic beats polished. Keep it closer to a real creator demo than an ad.",
     "Show the working result in the first two seconds.",
