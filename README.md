@@ -78,6 +78,9 @@ Rally builds on top of significant existing video generation and distribution te
 - **[v1 Spec](docs/SPEC_V1.md)** — Style-matched video generation pipeline.
 - **[POC results v2](docs/POC_RESULTS_V2.md)** — What worked, what didn't.
 - **[Day 1 log](docs/DAY1.md)** — What shipped on 2026-05-06 and what's queued for Day 2.
+- **[Day 2 log](docs/DAY2.md)** — Pipeline rebuild + agentic studio activation; first end-to-end agentic video.
+- **[Production order](docs/PRODUCTION_ORDER.md)** — Audio-drives-timing contract; the 10-step production order every Rally video respects.
+- **[Video rubric](docs/VIDEO_RUBRIC.md)** — 8-axis pre-publish scoring used by the Critic role.
 
 ## Repo layout
 
