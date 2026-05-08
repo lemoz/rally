@@ -72,10 +72,16 @@ def build_batches(
     if not panels:
         raise ValueError("plan must contain a non-empty panels array")
 
+    plan_level_rejects = validate_plan(plan, style_card)
+
     batches: list[StoryboardBatch] = []
     for index in range(0, len(panels), size):
         batch_panels = panels[index:index + size]
         batch_id = f"b{len(batches) + 1:02d}"
+        batch_rejects = validate_panels(batch_panels, style_card=style_card)
+        # Plan-level rejects ride on batch 1 to surface them where they're seen.
+        if index == 0 and plan_level_rejects:
+            batch_rejects = list(plan_level_rejects) + list(batch_rejects)
         batches.append(
             StoryboardBatch(
                 batch_id=batch_id,
@@ -87,7 +93,7 @@ def build_batches(
                     video_id=plan.get("video_id", "untitled_video"),
                     project=plan.get("project", {}),
                 ),
-                reject_reasons=validate_panels(batch_panels),
+                reject_reasons=batch_rejects,
             )
         )
     return batches
@@ -176,9 +182,28 @@ def build_prompt(
     return "\n".join(lines)
 
 
-def validate_panels(panels: list[dict[str, Any]]) -> list[str]:
+_REAL_CAPTURE_ROUTE_TOKENS = (
+    "REAL_CAPTURE",
+    "SCREEN_CAPTURE",
+    "SCREENSHOT",
+    "PLAYWRIGHT",
+    "PROOF_CARD",
+    "DETERMINISTIC",
+)
+
+
+def validate_panels(
+    panels: list[dict[str, Any]],
+    *,
+    style_card: dict[str, Any] | None = None,
+) -> list[str]:
     """Return reject reasons for storyboard panels before generation."""
     reasons: list[str] = []
+    generation = (style_card or {}).get("generation_rules", {})
+    prefer_real = bool(generation.get("prefer_real_capture_over_t2v")) or bool(
+        generation.get("prefer_real_capture")
+    )
+
     for panel in panels:
         panel_id = panel.get("panel_id", "unknown")
         claim_type = panel.get("claim_type", "")
@@ -206,6 +231,63 @@ def validate_panels(panels: list[dict[str, Any]]) -> list[str]:
                 "NB2_STILL_TO_LIPSYNC",
             }:
                 reasons.append(f"{panel_id}: identity_drift_risk")
+
+        # prefer_real_capture_violation: when the style card says real capture is
+        # required, panels that route through generative video models (T2V/I2V)
+        # are flagged. Stand-in or proof-card routes are exempt.
+        if prefer_real:
+            route = (panel.get("video_route") or "").upper()
+            fallback = (panel.get("fallback_route") or "").upper()
+            allow_generative = bool(panel.get("allow_generative_route"))
+            if route and not allow_generative:
+                if not any(token in route for token in _REAL_CAPTURE_ROUTE_TOKENS):
+                    reasons.append(f"{panel_id}: prefer_real_capture_violation")
+                elif fallback and not any(
+                    token in fallback for token in _REAL_CAPTURE_ROUTE_TOKENS
+                ):
+                    # The primary route is real capture but the fallback regresses to
+                    # generative; warn so the planner can pick a different fallback.
+                    reasons.append(f"{panel_id}: real_capture_fallback_to_generative")
+
+    return reasons
+
+
+def validate_plan(
+    plan: dict[str, Any],
+    style_card: dict[str, Any] | None = None,
+) -> list[str]:
+    """Return plan-level reject reasons.
+
+    Currently checks understaffed_storyboard: when the style card defines a
+    non-trivial story_structure, plans must have at least that many panels
+    (or generation_rules.min_panel_count, if explicit).
+    """
+    reasons: list[str] = []
+    if not style_card:
+        return reasons
+
+    panels = list(plan.get("panels") or [])
+    panel_count = len(panels)
+    generation = style_card.get("generation_rules", {})
+    explicit_min = generation.get("min_panel_count")
+    structure = style_card.get("story_structure", []) or []
+
+    if explicit_min is not None:
+        try:
+            min_count = int(explicit_min)
+        except (TypeError, ValueError):
+            min_count = 0
+    elif structure:
+        min_count = len(structure)
+    else:
+        min_count = 0
+
+    if min_count and panel_count < min_count:
+        reasons.append(
+            f"plan: understaffed_storyboard"
+            f" (have {panel_count} panel(s), style_card requires >={min_count})"
+        )
+
     return reasons
 
 

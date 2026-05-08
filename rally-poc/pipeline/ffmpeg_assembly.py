@@ -18,6 +18,10 @@ class ClipSpec:
     duration: float       # duration in seconds
     vo_path: Optional[str] = None
     subtitle: Optional[str] = None
+    # Optional per-word caption windows in clip-relative seconds. Each entry:
+    # {"text": "..", "start": float, "end": float}. When set, overrides the
+    # static `subtitle` field with a sequence of timed drawtext blocks.
+    caption_phrases: Optional[list[dict]] = None
 
 
 @dataclass
@@ -214,15 +218,16 @@ def _assemble_single(
     if filters:
         cmd += ["-vf", ",".join(filters)]
 
-    # Audio mixing
+    # Audio mixing. Use amix duration=shortest with an explicit -t cap so the
+    # output never extends past the video clip when music is longer than the clip.
     if clip.vo_path and music_path:
         vo_idx = 1
         music_idx = 2
         cmd += [
             "-filter_complex",
             f"[{music_idx}:a]volume={music_volume},"
-            f"afade=t=in:st=0:d=2,afade=t=out:st={clip.duration - 3}:d=3[m];"
-            f"[{vo_idx}:a][m]amix=inputs=2:duration=longest[aout]",
+            f"afade=t=in:st=0:d=2,afade=t=out:st={max(0, clip.duration - 3):.2f}:d=3[m];"
+            f"[{vo_idx}:a][m]amix=inputs=2:duration=shortest[aout]",
             "-map", "0:v", "-map", "[aout]",
         ]
     elif clip.vo_path:
@@ -235,8 +240,12 @@ def _assemble_single(
             "-map", "0:v", "-map", "[aout]",
         ]
 
-    cmd += ["-c:v", "libx264", "-preset", "fast", "-crf", "18",
-            "-c:a", "aac", "-ar", "44100", output_path]
+    cmd += [
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18",
+        "-c:a", "aac", "-ar", "44100",
+        "-t", f"{clip.duration:.3f}",
+        output_path,
+    ]
     _run_ffmpeg(cmd)
 
     return AssemblyResult(
@@ -323,17 +332,45 @@ def _build_subtitle_filters(
     timestamps: list[tuple[float, float]],
     subtitle_dir: Path,
 ) -> str:
-    """Build chained drawtext filters for subtitles."""
+    """Build chained drawtext filters for subtitles.
+
+    Two modes per clip:
+    - Per-phrase (when ClipSpec.caption_phrases set): one drawtext per phrase,
+      each timed to the phrase's clip-relative window translated to global time.
+      Used after Whisper word-level alignment.
+    - Static (when only ClipSpec.subtitle set): one drawtext per clip held
+      across the clip's full duration.
+    """
     parts = []
     for idx, (clip, (start, end)) in enumerate(zip(clips, timestamps)):
-        if not clip.subtitle:
-            continue
-        subtitle_path = _write_subtitle_file(clip.subtitle, subtitle_dir, f"{idx:02d}")
-        parts.append(_build_subtitle_drawtext(
-            clip.subtitle,
-            enable=f"between(t,{start:.2f},{end:.2f})",
-            textfile_path=subtitle_path,
-        ))
+        if clip.caption_phrases:
+            for ph_idx, phrase in enumerate(clip.caption_phrases):
+                text = phrase.get("text", "").strip()
+                if not text:
+                    continue
+                # Phrase start/end are clip-relative; translate to global timeline.
+                ph_start = start + float(phrase.get("start", 0.0))
+                ph_end = start + float(phrase.get("end", 0.0))
+                # Clamp to the clip window so we don't overrun shot boundaries.
+                ph_start = max(start, min(ph_start, end))
+                ph_end = max(start, min(ph_end, end))
+                if ph_end <= ph_start:
+                    continue
+                phrase_path = _write_subtitle_file(
+                    text, subtitle_dir, f"{idx:02d}_p{ph_idx:02d}"
+                )
+                parts.append(_build_subtitle_drawtext(
+                    text,
+                    enable=f"between(t,{ph_start:.2f},{ph_end:.2f})",
+                    textfile_path=phrase_path,
+                ))
+        elif clip.subtitle:
+            subtitle_path = _write_subtitle_file(clip.subtitle, subtitle_dir, f"{idx:02d}")
+            parts.append(_build_subtitle_drawtext(
+                clip.subtitle,
+                enable=f"between(t,{start:.2f},{end:.2f})",
+                textfile_path=subtitle_path,
+            ))
 
     if not parts:
         return ""

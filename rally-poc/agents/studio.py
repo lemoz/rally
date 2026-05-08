@@ -211,6 +211,95 @@ def generation_preflight_blockers(run_dir: Path, run: dict[str, Any]) -> list[st
             f"(${float(budgets.get('spent_usd', 0.0)):.2f}/"
             f"${float(budgets.get('candidate_budget_usd', 0.0)):.2f})"
         )
+    blockers.extend(keyframes_preflight_blockers(run_dir))
+    return blockers
+
+
+def concept_preflight_blockers(run_dir: Path) -> list[str]:
+    """Producer's gate check before approving the `concept` gate.
+
+    The concept artifact must contain a master_script — the pipeline's
+    audio-drives-timing contract requires VO text per beat to be derived
+    from a single source-of-truth script.
+    """
+    blockers: list[str] = []
+    concept_path = run_dir / "artifacts" / "selected_concept.md"
+    if not concept_path.exists():
+        blockers.append("selected_concept.md not written; creative_director hasn't run")
+        return blockers
+    body = concept_path.read_text(encoding="utf-8").lower()
+    if "master_script" not in body and "## script" not in body and "## master script" not in body:
+        blockers.append(
+            "selected_concept.md is missing a master_script section "
+            "(audio-drives-timing requires script as source of truth)"
+        )
+    return blockers
+
+
+def storyboard_preflight_blockers(run_dir: Path) -> list[str]:
+    """Storyboard gate check.
+
+    Every shot in storyboard.json must have a `vo_text` entry, and the timing
+    module must be able to measure VO durations once they're generated. We do
+    a structural check here; the actual VO measurement happens after the
+    Generation role runs the deterministic pipeline.
+    """
+    blockers: list[str] = []
+    storyboard_path = run_dir / "artifacts" / "storyboard.json"
+    if not storyboard_path.exists():
+        blockers.append("storyboard.json not written; storyboard role hasn't run")
+        return blockers
+    try:
+        data = json.loads(storyboard_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        blockers.append(f"storyboard.json is not valid JSON: {exc}")
+        return blockers
+
+    shots = data.get("shots") or data.get("panels") or []
+    if not shots:
+        blockers.append("storyboard.json has no shots/panels array")
+        return blockers
+    missing_vo = [s.get("name", "?") for s in shots if not s.get("vo_text")]
+    if missing_vo:
+        blockers.append(
+            f"shots without vo_text: {missing_vo[:3]}"
+            f"{' (and more)' if len(missing_vo) > 3 else ''}"
+        )
+    return blockers
+
+
+def keyframes_preflight_blockers(run_dir: Path) -> list[str]:
+    """Keyframes gate check.
+
+    Every shot in storyboard.json must have a corresponding entry in
+    keyframe_specs.json so the Generation role doesn't get to a shot
+    with no prompt pack.
+    """
+    blockers: list[str] = []
+    storyboard_path = run_dir / "artifacts" / "storyboard.json"
+    keyframes_path = run_dir / "artifacts" / "keyframe_specs.json"
+    if not keyframes_path.exists():
+        # Not yet written; this is fine before art_director runs.
+        return blockers
+    if not storyboard_path.exists():
+        blockers.append("keyframe_specs.json exists without storyboard.json")
+        return blockers
+    try:
+        sb = json.loads(storyboard_path.read_text(encoding="utf-8"))
+        kf = json.loads(keyframes_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        blockers.append(f"keyframe gate JSON parse error: {exc}")
+        return blockers
+
+    sb_names = {s.get("name") for s in (sb.get("shots") or sb.get("panels") or []) if s.get("name")}
+    kf_specs = kf.get("specs") or kf.get("keyframes") or kf.get("shots") or []
+    kf_names = {s.get("name") for s in kf_specs if s.get("name")}
+    missing = sb_names - kf_names
+    if missing:
+        blockers.append(
+            f"keyframe_specs.json is missing entries for: {sorted(missing)[:3]}"
+            f"{' (and more)' if len(missing) > 3 else ''}"
+        )
     return blockers
 
 

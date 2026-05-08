@@ -47,6 +47,17 @@ from .runcomfy_lipsync import (
     wait_for_completion,
 )
 from .segmind_client import SegmindRetryableError, generate_video
+from .timing import (
+    compute_total_target,
+    drift_warning,
+    measure_vo_durations,
+    snap_shot_durations,
+)
+from .whisper_client import (
+    WhisperError,
+    group_words_into_phrases,
+    transcribe_with_word_timestamps,
+)
 from .state import (
     STATUS_COMPLETED,
     STATUS_FAILED,
@@ -82,6 +93,11 @@ def main():
         "--stop-after",
         choices=("phase1", "video", "lipsync", "assembly"),
         help="Stop after a pipeline phase so intermediate assets can be reviewed.",
+    )
+    parser.add_argument(
+        "--skip-captions",
+        action="store_true",
+        help="Skip Whisper word-level caption alignment (use static subtitles instead).",
     )
     args = parser.parse_args()
 
@@ -173,6 +189,25 @@ def main():
 
     state.save()
     _check_cost_guard(state)
+
+    # ---- Timing measurement: audio drives every visual duration --------
+    measured = measure_vo_durations(shots, output_dir)
+    snapped = snap_shot_durations(shots, measured)
+    transition_dur_for_total = transition_dur if transition_dur and transition_dur > 0 else 0.0
+    measured_total = compute_total_target(
+        shots, snapped, transition_duration=transition_dur_for_total
+    )
+    drift = drift_warning(measured_total, plan.get("target_duration_s"))
+    if drift:
+        print(f"  TIMING: {drift}")
+    else:
+        print(
+            f"  TIMING: {len(measured)} shot(s) measured, snapped total = "
+            f"{measured_total:.1f}s"
+        )
+    state.measured_vo = measured  # type: ignore[attr-defined]
+    state.snapped_durations = snapped  # type: ignore[attr-defined]
+
     if args.stop_after == "phase1":
         print("Stopped after phase1.")
         state.print_cost_report()
@@ -233,6 +268,13 @@ def main():
         print("Stopped after lipsync.")
         state.print_cost_report()
         return
+
+    # ---- Phase 3.5: Whisper word-level caption alignment ----------------
+    if not args.skip_captions:
+        print("\n--- Phase 3.5: Whisper caption alignment ---\n")
+        _run_caption_alignment(shots, output_dir, state)
+    else:
+        print("\n--- Phase 3.5: Skipped (--skip-captions) ---\n")
 
     # ---- Phase 4: FFmpeg assembly ----------------------------------------
     print("\n--- Phase 4: Assembly ---\n")
@@ -421,18 +463,28 @@ def _generate_video(
     prompt = shot.get("video_prompt", shot.get("image_prompt", ""))
     shot_type = shot["type"]
 
-    # For lipsync shots, match video duration to VO duration
-    # so sync_mode="cut_off" instead of "bounce" (avoids temporal artifacts)
-    target_dur = shot.get("duration_s", 5)
-    if shot.get("needs_lipsync"):
-        audio_state = state.shot(name).audio
-        if audio_state.status == STATUS_COMPLETED and audio_state.path:
-            try:
-                vo_dur = get_duration(audio_state.path)
-                target_dur = vo_dur
+    # Audio drives timing: every shot with a generated VO snaps its visual
+    # duration to the actual measured VO length (+ 0.3s tail buffer). This was
+    # previously gated to lipsync-only shots, which caused chronic VO/visual
+    # drift. The plan-level duration_s is now a hint for budget estimation.
+    plan_dur = shot.get("duration_s", 5)
+    target_dur = plan_dur
+    audio_state = state.shot(name).audio
+    if audio_state.status == STATUS_COMPLETED and audio_state.path:
+        try:
+            vo_dur = get_duration(audio_state.path)
+            target_dur = vo_dur + 0.3
+            if abs(plan_dur - vo_dur) > 1.5:
+                _log(
+                    name,
+                    "video",
+                    f"WARNING: plan duration_s ({plan_dur}s) differs from measured VO "
+                    f"({vo_dur:.1f}s) by >1.5s; using VO + 0.3s buffer",
+                )
+            else:
                 _log(name, "video", f"duration-matching to VO ({vo_dur:.1f}s)")
-            except Exception:
-                pass
+        except Exception:
+            pass
     duration = snap_duration(target_dur)
 
     output_path = os.path.join(output_dir, "clips", f"{name}.mp4")
@@ -593,6 +645,56 @@ def _run_lipsync(
     _log(name, "lipsync", f"done -> {output_path}")
 
 
+def _run_caption_alignment(
+    shots: list[dict],
+    output_dir: str,
+    state: PipelineState,
+) -> None:
+    """Phase 3.5: Whisper word-level alignment per VO file.
+
+    For each shot with a generated VO, transcribe with word timestamps and
+    cache to output_dir/captions/<shot>.json. _build_clip_specs picks up the
+    cached file and attaches `caption_phrases` to ClipSpec.
+
+    Best-effort: if the OPENAI_API_KEY is unset OR a single shot fails,
+    we fall back to the existing static `subtitle` field for that shot.
+    """
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        print("  WARNING: OPENAI_API_KEY not set; skipping Whisper alignment.")
+        return
+
+    captions_dir = os.path.join(output_dir, "captions")
+    os.makedirs(captions_dir, exist_ok=True)
+
+    for shot in shots:
+        name = shot["name"]
+        if not shot.get("vo_text"):
+            continue
+        audio_state = state.shot(name).audio
+        if audio_state.status != STATUS_COMPLETED or not audio_state.path:
+            continue
+
+        cache_path = os.path.join(captions_dir, f"{name}.json")
+        if os.path.exists(cache_path):
+            _log(name, "captions", "cached")
+            continue
+
+        try:
+            result = transcribe_with_word_timestamps(audio_state.path, api_key)
+        except WhisperError as exc:
+            _log(name, "captions", f"FAILED: {exc}")
+            continue
+        phrases = group_words_into_phrases(result.words)
+        with open(cache_path, "w") as f:
+            json.dump(
+                {"text": result.text, "duration_s": result.duration_s, "phrases": phrases},
+                f,
+                indent=2,
+            )
+        _log(name, "captions", f"done ({len(phrases)} phrase(s))")
+
+
 def _create_still_lipsync_source(
     shot: dict,
     output_dir: str,
@@ -674,15 +776,32 @@ def _build_clip_specs(
                 normalize_clip(video_path, norm_path)
             final_clip = norm_path
 
-        duration = get_duration(final_clip)
+        # Authoritative duration: snapped target from VO measurement, not
+        # whatever Seedance returned (which can be 4.97s for a 5s request).
+        snapped_dur = getattr(state, "snapped_durations", {}).get(name)
+        if snapped_dur is not None:
+            duration = float(snapped_dur)
+        else:
+            duration = get_duration(final_clip)
         vo_path = ss.audio.path if ss.audio.status == STATUS_COMPLETED else None
         subtitle = shot.get("subtitle")
+
+        # Attach Whisper-aligned caption phrases when available.
+        caption_phrases = None
+        captions_path = os.path.join(output_dir, "captions", f"{name}.json")
+        if os.path.exists(captions_path):
+            try:
+                with open(captions_path) as f:
+                    caption_phrases = json.load(f).get("phrases")
+            except Exception:
+                caption_phrases = None
 
         specs.append(ClipSpec(
             video_path=final_clip,
             duration=duration,
             vo_path=vo_path,
             subtitle=subtitle,
+            caption_phrases=caption_phrases,
         ))
 
     return specs

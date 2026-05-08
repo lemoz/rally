@@ -69,6 +69,17 @@ def main() -> None:
         return
 
     if command_template:
+        # Skip the model call if this role already produced its primary output
+        # in a prior invocation. Cheap re-runs across the sequential driver.
+        if _primary_output_exists(run_dir, role.primary_output):
+            _write_status(run_dir, role.role, "complete", {
+                "prompt": str(prompt_path),
+                "handoff": str(handoff_path),
+                "primary_output": role.primary_output,
+                "cached": True,
+            })
+            print(f"[worker] {role.role}: cached (primary_output exists)")
+            return
         _write_status(run_dir, role.role, "running_command", {"template": command_template})
         code = _run_command_template(command_template, run_dir, run, role.role, prompt_path)
         _write_status(run_dir, role.role, "command_completed" if code == 0 else "command_failed", {"exit_code": code})
